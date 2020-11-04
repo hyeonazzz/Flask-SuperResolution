@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Fakeman - Super-Resolution with Python Flask">
     <meta name="author" content="Ansonika">
-    <title>가짜사나이 | Super-Resolution with Flask</title>
+    <title>FLASK-DBPN</title>
 
     <!-- Favicons-->
     <link rel="shortcut icon" href="../static/favicon.ico" type="image/x-icon">
@@ -61,6 +61,7 @@
 	        <div class="col-xl-4 col-lg-4 content-left">
 	            <div class="content-left-wrapper">
 	                <a href="index.html" id="logo"><img src="../static/logo.png" alt="" width="45" height="45"></a>
+					<!--
 	                <div id="social">
 	                    <ul>
 	                        <li><a href="#0"><i class="icon-facebook"></i></a></li>
@@ -69,7 +70,7 @@
 	                        <li><a href="#0"><i class="icon-linkedin"></i></a></li>
 	                    </ul>
 	                </div>
-	                <!-- /social -->
+	                 /social -->
 	                <div>
 	                    <figure><img src="../static/info_graphic_1.svg" alt="" class="img-fluid" width="270" height="270"></figure>
 	                    <h2>가짜사나이</h2>
@@ -77,7 +78,7 @@
 	                    <a href="https://github.com/hyeonazzz/Flask-SuperResolution" class="btn_1 rounded yellow">GitHub에서 보기</a>
 	                    <a href="#start" class="btn_1 rounded mobile_btn yellow">Start Now!</a>
 	                </div>
-	                <div class="copy">© 2020 Potenza</div>
+	                <div class="copy">© 2020</div>
 	            </div>
 	            <!-- /content-left-wrapper -->
 	        </div>
@@ -94,9 +95,10 @@
 	                    <!-- Leave for security protection, read docs for details -->
 	                    <div id="middle-wizard">
 	                        <div class="step">
-	                            <h2 class="section_title">Presentation</h2>
-	                            <h3 class="main_question">Personal info</h3>
-	                            <div class="form-group add_top_30">
+	                            <h2 class="section_title">FLASK DBPN</h2>
+	                            Deep Back-Projection Networks(DBPN)을 활용한<br>초해상화로 이미지의 해상도를 개선합니다.
+	                            <!--
+								<div class="form-group add_top_30">
 	                                <label for="name">First and Last Name</label>
 	                                <input type="text" name="name" id="name" class="form-control required" onchange="getVals(this, 'name_field');">
 	                            </div>
@@ -108,23 +110,42 @@
 	                                <label for="phone">Phone</label>
 	                                <input type="text" name="phone" id="phone" class="form-control required">
 	                            </div>
-								<label>Gender</label>
-								<div class="form-group radio_input">
-								    <label class="container_radio mr-3">Male
-								        <input type="radio" name="gender" value="Male" class="required">
-								        <span class="checkmark"></span>
-								    </label>
-								    <label class="container_radio">Female
-								        <input type="radio" name="gender" value="Female" class="required">
-								        <span class="checkmark"></span>
-								    </label>
+								-->
+								<div class="form-group add_top_30">
 								</div>
-	                            <div class="form-group add_bottom_30 add_top_20">
-	                                <label>Attach Resume<br><small>(File accepted: .pdf, .doc/docx - Max file size: 150KB for demo limit)</small></label>
+								<div class="form-group add_bottom_30 add_top_20">
+	                                <label>Attach image<br><small>(File accepted: .png, .jpg, .bmp - Max file size: 2MB for limit)</small></label>
 	                                <div class="fileupload">
 	                                    <input type="file" name="fileupload" accept=".pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" class="required">
 	                                </div>
 	                            </div>
+								<label>Style</label>
+								<div class="form-group radio_input">
+								    <label class="container_radio mr-3">Infrared
+								        <input type="radio" name="infrared" value="ir" class="required">
+								        <span class="checkmark"></span>
+								    </label>
+								    <label class="container_radio">Visible light
+								        <input type="radio" name="visible light" value="visible" class="required">
+								        <span class="checkmark"></span>
+								    </label>
+								</div>
+								<label>Scale</label>
+								<div class="form-group radio_input">
+								    <label class="container_radio mr-3">X2&nbsp　　
+								        <input type="radio" name="x2" value="x2" class="required">
+								        <span class="checkmark"></span>
+								    </label>
+								    <label class="container_radio">X3&nbsp　　
+								        <input type="radio" name="x3" value="x3" class="required">
+								        <span class="checkmark"></span>
+								    </label>
+									<label class="container_radio">X4&nbsp　　
+								        <input type="radio" name="x4" value="x4" class="required">
+								        <span class="checkmark"></span>
+								    </label>
+								</div>
+	                            
 	                        </div>
 	                        <!-- /step-->
 
@@ -307,7 +328,7 @@
 	                    <!-- /middle-wizard -->
 	                    <div id="bottom-wizard">
 	                        <button type="button" name="backward" class="backward">Prev</button>
-	                        <button type="button" name="forward" class="forward">Next</button>
+	                        <button type="button" name="forward" class="forward">Download</button>
 	                        <button type="submit" name="process" class="submit">Submit</button>
 	                    </div>
 	                    <!-- /bottom-wizard -->
@@ -330,9 +351,9 @@
 		<span></span>
 	</div>
 	<!-- /cd-overlay-content -->
-
+	<!--
 	<a href="#0" class="cd-nav-trigger">Menu<span class="cd-icon"></span></a>
-	<!-- /menu button -->
+	 /menu button -->
 	
 	<!-- Modal terms -->
 	<div class="modal fade" id="terms-txt" tabindex="-1" role="dialog" aria-labelledby="termsLabel" aria-hidden="true">
