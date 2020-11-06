@@ -58,7 +58,7 @@ $("form#wrapped")
         rules: {
             fileupload: {
                 fileType: {
-                    types: ["pdf", "application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document"]
+                    types: ["png", "jpg", "bmp"]
                 },
                 maxFileSize: {
                     "unit": "KB",

@@ -94,7 +94,7 @@
 	                    <input id="website" name="website" type="text" value="">
 	                    <!-- Leave for security protection, read docs for details -->
 	                    <div id="middle-wizard">
-	                        <div class="step" data-state="end">
+	                        <div class="step">
 	                            <h2 class="section_title">SR(super-resolution) with flask</h2>
 	                            Deep Back-Projection Networks(DBPN)을 활용한<br>초해상화로 이미지의 해상도를 개선합니다.
 	                            <!--
@@ -119,10 +119,107 @@
 	                                    <input type="file" name="fileupload" accept=".png,.jpg,.bmp" class="required">
 	                                </div>
 	                            </div>
+								<!--
+								<label>Style</label>
+								<div class="form-group radio_input">
+								    <label class="container_radio mr-3">Infrared
+								        <input type="radio" name="infrared" value="ir" class="required">
+								        <span class="checkmark"></span>
+								    </label>
+								    <label class="container_radio">Visible light
+								        <input type="radio" name="visible light" value="visible" class="required">
+								        <span class="checkmark"></span>
+								    </label>
+								</div>
+								<label>Scale</label>
+								<div class="form-group radio_input">
+								    <label class="container_radio mr-3">X2&nbsp　　
+								        <input type="radio" name="x2" value="x2" class="required">
+								        <span class="checkmark"></span>
+								    </label>
+								    <label class="container_radio">X3&nbsp　　
+								        <input type="radio" name="x3" value="x3" class="required">
+								        <span class="checkmark"></span>
+								    </label>
+									<label class="container_radio">X4&nbsp　　
+								        <input type="radio" name="x4" value="x4" class="required">
+								        <span class="checkmark"></span>
+								    </label>
+								</div>
+								-->
 	                            
 	                        </div>
 	                        <!-- /step-->
 
+	                        <!-- /Start Branch ============================== -->
+	                        <div class="step" data-state="branchtype">
+	                            <h3 class="main_question">Scope setting</h3>
+	                            <div class="form-group">
+	                                <label class="container_radio version_2">X2
+	                                    <input type="radio" name="scope" value="x2" class="required">
+	                                    <span class="checkmark"></span>
+	                                </label>
+	                                <label class="container_radio version_2">X3
+	                                    <input type="radio" name="scope" value="x3" class="required">
+	                                    <span class="checkmark"></span>
+	                                </label>
+	                                <label class="container_radio version_2">X4
+	                                    <input type="radio" name="scope" value="x4" class="required">
+	                                    <span class="checkmark"></span>
+	                                </label>
+	                            </div>
+	                            <small>* select one of these </small>
+	                        </div>
+
+	                        <!-- /Work Availability > Full-time ============================== -->
+	                        <div class="branch" id="x2">
+	                            <div class="step" data-state="end">
+	                                <h3 class="main_question">Option setting</h3>
+	                                <label class="custom">Noise removal</label>
+	                                <div class="form-group radio_input">
+	                                    <label class="container_radio mr-3">No
+	                                        <input type="radio" name="remotely_full_time" value="no" class="required">
+	                                        <span class="checkmark"></span>
+	                                    </label>
+	                                    <label class="container_radio">Yes
+	                                        <input type="radio" name="remotely_full_time" value="yes" class="required">
+	                                        <span class="checkmark"></span>
+	                                    </label>
+	                                </div>
+	                            </div>
+	                        </div>
+							<div class="branch" id="x3">
+	                            <div class="step" data-state="end">
+	                                <h3 class="main_question">Option setting</h3>
+	                                <label class="custom">Noise removal</label>
+	                                <div class="form-group radio_input">
+	                                    <label class="container_radio mr-3">No
+	                                        <input type="radio" name="remotely_full_time" value="no" class="required">
+	                                        <span class="checkmark"></span>
+	                                    </label>
+	                                    <label class="container_radio">Yes
+	                                        <input type="radio" name="remotely_full_time" value="yes" class="required">
+	                                        <span class="checkmark"></span>
+	                                    </label>
+	                                </div>
+	                            </div>
+	                        </div>
+							<div class="branch" id="x4">
+	                            <div class="step" data-state="end">
+	                                <h3 class="main_question">Option setting</h3>
+	                                <label class="custom">Noise removal</label>
+	                                <div class="form-group radio_input">
+	                                    <label class="container_radio mr-3">No
+	                                        <input type="radio" name="remotely_full_time" value="no" class="required">
+	                                        <span class="checkmark"></span>
+	                                    </label>
+	                                    <label class="container_radio">Yes
+	                                        <input type="radio" name="remotely_full_time" value="yes" class="required">
+	                                        <span class="checkmark"></span>
+	                                    </label>
+	                                </div>
+	                            </div>
+	                        </div>
 							
 	                        <!-- /step-->
 	                        <div class="submit step" id="end">

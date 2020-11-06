@@ -3,7 +3,7 @@ jQuery(function($) {
     "use strict";
     // PHPMailer with html file(single) attachment support > phpmailer/send_email_4_file_attachment_phpmailer.php (default)
     // PHPMailer with html file(single) attachment support SMTP > phpmailer/send_email_4_file_attachment_phpmailer_smtp.php
-    $('form#wrapped').attr('action', 'phpmailer/send_email_4_file_attachment_phpmailer.php');
+    $('form#wrapped').attr('action', 'result.html');
     $("#wizard_container").wizard({
         stepsWrapper: "#wrapped",
         submit: ".submit",
@@ -54,7 +54,7 @@ $("form#wrapped")
         rules: {
             fileupload: {
                 fileType: {
-                    types: ["pdf", "application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document"]
+                    types: ["png", "jpg", "bmp"]
                 },
                 maxFileSize: {
                     "unit": "KB",
