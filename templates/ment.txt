@@ -1,0 +1,40 @@
+@blueprint.route('/tracker/process', methods = ['GET', 'POST'])
+def page_tracker():
+    if request.method == "POST":
+        for f in os.scandir('app/base/static/assets/img/tracking_data/training_video'):
+            os.remove(f.path)
+        for f in os.scandir('app/base/static/assets/img/tracking_data/training_images/DETECTION'):
+            os.remove(f.path)
+
+        face_file = request.files.getlist('face_file')
+        video_file = request.files['video_file']
+
+        upload_files['face_file'] = []
+        upload_files['video_file'] = video_file.filename
+        video_file.save('./app/base/static/assets/img/tracking_data/training_video/'+secure_filename(video_file.filename))
+
+        for f in face_file:
+            if f:
+                f.save('./app/base/static/assets/img/tracking_data/training_images/DETECTION/'+secure_filename(f.filename))
+                upload_files['face_file'].append(f.filename)
+    time.sleep(2)
+    return render_template('tracker-loading.html')
+
+
+----
+
+@blueprint.route('/tracker/results', endpoint='/tracker/results')
+@nocache
+def page_result():
+    global result_files
+    result_files['video'] = 'assets/img/tracking_results/output_video.mp4'
+    result_files['json'] = 'assets/img/tracking_results/results_json.json'
+
+    top_time, mid_time, bot_time = extract_from_json(result_files['video'], result_files['json'], result_files['length'])
+
+    result_files['top'] = 'assets/img/tracking_results/top_result.jpg'
+    result_files['mid'] = 'assets/img/tracking_results/mid_result.jpg'
+    result_files['bot'] = 'assets/img/tracking_results/bot_result.jpg'
+
+    time.sleep(3)
+    return render_template('tracker-result.html', result_files=result_files, top_time=top_time, mid_time=mid_time, bot_time=bot_time)

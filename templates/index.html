@@ -60,7 +60,7 @@
 	    <div class="row row-height">
 	        <div class="col-xl-4 col-lg-4 content-left">
 	            <div class="content-left-wrapper">
-	                <a href="index.html" id="logo"><img src="../static/logo.png" alt="" width="45" height="45"></a>
+	                <a href="{{ url_for('index') }}" id="logo"><img src="../static/logo.png" alt="" width="45" height="45"></a>
 					<!--
 	                <div id="social">
 	                    <ul>
@@ -90,7 +90,7 @@
 	                    <div id="progressbar"></div>
 	                </div>
 	                <!-- /top-wizard -->
-	                <form id="wrapped" method="post" enctype="multipart/form-data">
+	                <form id="wrapped" action="result" method="post" enctype="multipart/form-data">
 	                    <input id="website" name="website" type="text" value="">
 	                    <!-- Leave for security protection, read docs for details -->
 	                    <div id="middle-wizard">
