@@ -67,14 +67,14 @@
 	                    <div id="progressbar"></div>
 	                </div>
 	                <!-- /top-wizard -->
-	                <form id="wrapped" action="http://13.209.19.207:5000/upload" method="POST" enctype="multipart/form-data">
+	                <form id="wrapped" action="/fdbpn_post" method="POST" enctype="multipart/form-data">
 	                    <input id="website" name="website" type="text" value="">
 	                    <!-- Leave for security protection, read docs for details -->
 	                    <div id="middle-wizard">
 	                        <div class="step" data-state="end">
 	                            <h2 class="section_title">SR(super-resolution) with flask</h2>
 	                            Deep Back-Projection Networks(DBPN)을 활용한<br>초해상화로 이미지의 해상도를 개선합니다.<br><hr>
-								<button type="button" name="uploadbtn" class="forward" onclick = "location.href = '{{ url_for('upload') }}'">Go to upload</button>
+								<button type="button" name="uploadbtn" class="forward" onclick = "location.href = '{{ url_for('fdbpn_get') }}'">Go to upload</button>
 	                        </div>
 	                        <!-- /step-->
 

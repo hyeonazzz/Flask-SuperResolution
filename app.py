@@ -10,18 +10,19 @@ os.makedirs(uploads_dir, exist_ok=True)
 def index():
     return render_template('index.html')
 
-@app.route('/upload', methods = ['GET', 'POST'])
-def upload():
+@app.route('/fdbpn_get')
+def fdbpn_get
+
+    return render_template('fdbpn_get.html')
+
+@app.route('/fdbpn_post', methods = ['GET', 'POST'])
+def fdbpn_post():
     if request.method == 'POST':
         # save the single "profile" file
         profile = request.files['file']
         profile.save(os.path.join(uploads_dir, secure_filename(profile.filename)))
-
-    return render_template('upload.html')
-
-@app.route('/result')
-def result():
-    return render_template('result.html')
+        
+    return render_template('fdbpn_post.html')
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port="5000")
