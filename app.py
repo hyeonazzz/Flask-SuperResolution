@@ -7,8 +7,8 @@ app = Flask(__name__)
 app.config['UPLOAD_DIR'] = UPLOAD_DIR
 
 def removeAllFile(filePath):
-    if os.path.exists('UPLOAD_DIR'):
-        for file in os.scandir('UPLOAD_DIR'):
+    if os.path.exists(filePath):
+        for file in os.scandir(filePath):
             os.remove(file.path)
         else:
             return 'already clean'
