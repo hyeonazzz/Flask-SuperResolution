@@ -6,6 +6,15 @@ UPLOAD_DIR = 'static/images/user_img'
 app = Flask(__name__)
 app.config['UPLOAD_DIR'] = UPLOAD_DIR
 
+def removeAllFile(filePath):
+    if os.path.exists('UPLOAD_DIR'):
+        for file in os.scandir('UPLOAD_DIR'):
+            os.remove(file.path)
+        else:
+            return 'already clean'
+print('os.remove')
+
+removeAllFile('static/images/user_img')
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -17,12 +26,6 @@ def fdbpn_get():
 @app.route('/fdbpn_post', methods = ['GET', 'POST'])
 def fdbpn_post():
     if request.method == "POST":
-        if os.path.exists('UPLOAD_DIR'):
-            for file in os.scandir('UPLOAD_DIR'):
-                os.remove(file.path)
-        else:
-            return 'already clean'
-
         user_img = request.files['user_img']
         fname = secure_filename(user_img.filename)
         path = os.path.join(app.config['UPLOAD_DIR'], fname)
