@@ -1,5 +1,5 @@
 from flask import Flask, render_template, redirect, url_for, request
-from werkzeug import secure_filename
+from werkzeug.utils import secure_filename
 app = Flask(__name__)
 
 @app.route('/')
