@@ -3,9 +3,6 @@ from flask import Flask, render_template, redirect, url_for, request, escape, Re
 from werkzeug.utils import secure_filename
 app = Flask(__name__)
 
-uploads_dir = os.path.join(app.instance_path, 'uploads')
-os.makedirs(uploads_dir, exist_ok=True)
-
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -16,13 +13,20 @@ def fdbpn_get():
 
 @app.route('/fdbpn_post', methods = ['GET', 'POST'])
 def fdbpn_post():
-    if request.method == 'POST':
-        user_img = request.files['user_img']
-        user_img.save = ('./Flask-SuperResolution/static/images/'+str(user_img.filename))
-        user_img_path = '/images/'+str(user_img.filename)
-        return render_template('fdbpn_post.html', user_img=user_img)
-    else:
-        return 'oops'
+    if request.method == "POST":
+        for f in os.scandir('static/images/user_img'):
+            os.remove(f.path)
+
+        user_img = request.files.getlist('user_img')
+
+        upload_files['user_img'] = user_img.filename
+
+        for f in face_file:
+            if f:
+                f.save('static/images/user_img2/'+secure_filename(f.filename))
+                upload_files['user_img'].append(f.filename)
+    time.sleep(2)
+    return render_template('fdbpn_post.html', user_img=user_img)
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port="5000")
