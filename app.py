@@ -2,7 +2,7 @@ from flask import Flask, render_template, redirect, url_for, request
 from werkzeug.utils import secure_filename
 app = Flask(__name__)
 
-@app.route('/' methods = ['GET', 'POST'])
+@app.route('/', methods = ['GET', 'POST'])
 def index():
     return render_template('index.html')
 
