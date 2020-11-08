@@ -71,59 +71,24 @@
 	                    <input id="website" name="website" type="text" value="">
 	                    <!-- Leave for security protection, read docs for details -->
 	                    <div id="middle-wizard">
-	                        <div class="step" data-state="end">
+	                        <div class="submit step" id="end">
 	                            <h2 class="section_title">SR(super-resolution) with flask</h2>
 	                            Deep Back-Projection Networks(DBPN)을 활용한<br>초해상화로 이미지의 해상도를 개선합니다.
-	                            <!--
-								<div class="form-group add_top_30">
-	                                <label for="name">First and Last Name</label>
-	                                <input type="text" name="name" id="name" class="form-control required" onchange="getVals(this, 'name_field');">
-	                            </div>
-	                            <div class="form-group">
-	                                <label for="email">Email Address</label>
-	                                <input type="email" name="email" id="email" class="form-control required" onchange="getVals(this, 'email_field');">
-	                            </div>
-	                            <div class="form-group">
-	                                <label for="phone">Phone</label>
-	                                <input type="text" name="phone" id="phone" class="form-control required">
-	                            </div>
-								-->
 								<div class="form-group add_top_30">
 								</div>
 								<div class="form-group add_bottom_30 add_top_20">
 	                                <label>Attach image<br><small>(File accepted: .png, .jpg, .bmp - Max file size: 2MB for limit)</small></label>
 	                                <div class="fileupload">
 	                                    <input type="file" name="user_img" id="user_img" accept=".png,.jpg,.bmp" class="required">
+										<input type="submit" value="확인"/>
 	                                </div>
 	                            </div>
 	                            
 	                        </div>
-	                        <!-- /step-->
-
-							
-	                        <!-- /step-->
-	                        <div class="submit step" id="end">
-	                            <div class="summary">
-	                                <div class="wrapper">
-	                                    <p>Setting is complete. Please click the<br>run model button below <strong id="email_field"></strong></p>
-	                                </div>
-	                                <div class="text-center">
-	                                    <div class="form-group terms">
-	                                        <label class="container_check">Please accept our <a href="#" data-toggle="modal" data-target="#terms-txt">Terms and conditions</a> before Submit
-	                                            <input type="checkbox" name="terms" value="Yes" class="required">
-	                                            <span class="checkmark"></span>
-	                                        </label>
-	                                    </div>
-	                                </div>
-	                            </div>
-	                        </div>
-	                        <!-- /step last-->
 
 	                    </div>
 	                    <!-- /middle-wizard -->
 	                    <div id="bottom-wizard">
-	                        <button type="button" name="backward" class="backward">Prev</button>
-	                        <button type="button" name="forward" class="forward">Next</button>
 	                        <button type="submit" name="fdbpn_post" class="forward" onclick = "location.href = '{{ url_for('fdbpn_post') }}'">Run Model</button></a>
 	                    </div>
 	                    <!-- /bottom-wizard -->
