@@ -17,11 +17,11 @@ def fdbpn_get():
 @app.route('/fdbpn_post', methods = ['GET', 'POST'])
 def fdbpn_post():
     if request.method == "POST":
-        try:
-            os.remove('UPLOAD_DIR')
-            file_handle.close()
-        except Exception as error:
-            app.logger.error("Error removing or closing downloaded file handle", error)
+        if os.path.exists('UPLOAD_DIR'):
+            for file in os.scandir('UPLOAD_DIR'):
+                os.remove(file.path)
+        else:
+            return 'already clean'
 
         user_img = request.files['user_img']
         fname = secure_filename(user_img.filename)
