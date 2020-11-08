@@ -67,7 +67,7 @@
 	                    <div id="progressbar"></div>
 	                </div>
 	                <!-- /top-wizard -->
-	                <form id="wrapped" action="http://13.209.19.207:5000/fileUpload" method="POST" enctype="multipart/form-data">
+	                <form id="wrapped" action="http://13.209.19.207:5000" method="POST" enctype="multipart/form-data">
 	                    <input id="website" name="website" type="text" value="">
 	                    <!-- Leave for security protection, read docs for details -->
 	                    <div id="middle-wizard">
@@ -124,7 +124,7 @@
 	                    <div id="bottom-wizard">
 	                        <button type="button" name="backward" class="backward">Prev</button>
 	                        <button type="button" name="forward" class="forward">Next</button>
-	                        <button type="submit" name="process" class="submit"><a href="http://13.209.19.207:5000/result">Run Model</a></button>
+	                        <a href="http://13.209.19.207:5000/result"><button type="submit" name="process" class="submit">Run Model</button></a>
 	                    </div>
 	                    <!-- /bottom-wizard -->
 	                </form>
