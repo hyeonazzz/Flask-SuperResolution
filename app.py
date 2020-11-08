@@ -17,7 +17,7 @@ def upload():
         profile = request.files['file']
         profile.save(os.path.join(uploads_dir, secure_filename(profile.filename)))
 
-        return render_template('upload.html')
+    return render_template('upload.html')
 
 @app.route('/result')
 def result():
