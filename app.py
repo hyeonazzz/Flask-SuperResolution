@@ -21,9 +21,10 @@ def fdbpn_post():
         user_img = request.files['user_img']
         user_img.save = ('static/img/user_img/'+str(user_img.filename))
         user_img_path = '/user_img/'+str(user_img.filename)
-    
-    return render_template('fdbpn_post.html', user_img=user_img)
-
+        return render_template('fdbpn_post.html', user_img=user_img)
+    else:
+        print('Oops!')
+        
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port="5000")
 
