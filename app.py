@@ -4,7 +4,7 @@ from werkzeug.utils import secure_filename
 app = Flask(__name__)
 
 uploads_dir = os.path.join(app.instance_path, 'uploads')
-os.makedirs(uploads_dir, exists_ok=True)
+os.makedirs(uploads_dir, exist_ok=True)
 
 @app.route('/', methods = ['GET', 'POST'])
 def index():
