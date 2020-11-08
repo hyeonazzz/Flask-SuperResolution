@@ -19,7 +19,7 @@ def fdbpn_post():
 
         user_img = request.files.getlist('user_img')
 
-        upload_files['user_img'] = user_img.filename
+        upload_files['user_img'] = []
 
         for f in face_file:
             if f:
