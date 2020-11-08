@@ -17,10 +17,10 @@ def fdbpn_get():
 @app.route('/fdbpn_post', methods = ['GET', 'POST'])
 def fdbpn_post():
     if request.method == "POST":
-        f = request.files['user_img']
-        fname = secure_filename(f.filename)
+        user_img = request.files['user_img']
+        fname = secure_filename(user_img.filename)
         path = os.path.join(app.config['UPLOAD_DIR'], fname)
-        f.save(path)
+        user_img.save(path)
     return render_template('fdbpn_post.html', user_img=user_img)
 
 if __name__ == '__main__':
