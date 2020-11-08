@@ -13,11 +13,11 @@ def result():
 
 
 @app.route('/fileUpload', methods = ['GET', 'POST'])
-def upload_file();
+def upload_file():
     if request.method == 'POST':
         f = request.files['file']
         f.save('Uploads/'+ secure_filename(f.filename))
-        return '성공'
+        return render_template('result.html')
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port="5000")
