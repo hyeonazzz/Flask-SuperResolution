@@ -10,7 +10,7 @@ def index():
 def result():
     return render_template('result.html')
 
-@app.route('/fileUpload', methos = ['GET', 'POST'])
+@app.route('/fileUpload', methods = ['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
         f = request.files['file']
