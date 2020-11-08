@@ -18,6 +18,7 @@ def fdbpn_get():
 def fdbpn_post():
     if request.method == 'POST':
         # save the single "profile" file
+        global user_img
         user_img = request.files['user_img']
         profile.save(os.path.join(uploads_dir, secure_filename(user_img.filename)))
 
