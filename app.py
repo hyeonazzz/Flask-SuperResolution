@@ -18,8 +18,8 @@ def fdbpn_get():
 def fdbpn_post():
     if request.method == 'POST':
         user_img = request.files['user_img']
-        user_img.save = ('uploads/'+str(user_img.filename))
-        user_img_path = 'uploads/'+str(user_img.filename)
+        user_img.save = ('static/images/'+str(user_img.filename))
+        user_img_path = '/images/'+str(user_img.filename)
         return render_template('fdbpn_post.html', user_img=user_img)
     else:
         return 'oops'
