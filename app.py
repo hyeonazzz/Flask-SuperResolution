@@ -17,7 +17,6 @@ def fdbpn_get():
 @app.route('/fdbpn_post', methods = ['GET', 'POST'])
 def fdbpn_post():
     if request.method == 'POST':
-        root_path()
         user_img = request.files['user_img']
         user_img.save = ('uploads/'+str(user_img.filename))
         user_img_path = 'uploads/'+str(user_img.filename)
