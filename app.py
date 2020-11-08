@@ -1,7 +1,10 @@
 import os, sys
 from flask import Flask, render_template, redirect, url_for, request, escape, Response, g, make_response
 from werkzeug.utils import secure_filename
+
+UPLOAD_DIR = 'static/images'
 app = Flask(__name__)
+app.config['UPLOAD_DIR'] = UPLOAD_DIR
 
 @app.route('/')
 def index():
@@ -14,18 +17,10 @@ def fdbpn_get():
 @app.route('/fdbpn_post', methods = ['GET', 'POST'])
 def fdbpn_post():
     if request.method == "POST":
-        for f in os.scandir('static/images/user_img'):
-            os.remove(f.path)
-
-        user_img = request.files.getlist('user_img')
-
-        upload_files['user_img'] = []
-
-        for f in face_file:
-            if f:
-                f.save('static/images/user_img2/'+secure_filename(f.filename))
-                upload_files['user_img'].append(f.filename)
-    time.sleep(2)
+        f = request.files['user_img']
+        fname = secure_filename(f.filename)
+        path = os.path.join(app.config['/user_img/'], fname)
+        f.save(path)
     return render_template('fdbpn_post.html', user_img=user_img)
 
 if __name__ == '__main__':
