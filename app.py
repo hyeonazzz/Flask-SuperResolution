@@ -15,7 +15,7 @@ def removeAllFile(filePath):
 print('os.remove')
 
 removeAllFile('static/images/user_img')
-removeAllFile('static/images/output')
+removeAllFile('static/images/output/user_img')
 @app.route('/')
 def index():
     return render_template('index.html')
