@@ -20,7 +20,7 @@ import cv2
 
 # Training settings
 parser = argparse.ArgumentParser(description='PyTorch Super Res Example')
-parser.add_argument('--upscale_factor', type=int, default=4, help="super resolution upscale factor")
+parser.add_argument('--upscale_factor', type=int, default=2, help="super resolution upscale factor")
 parser.add_argument('--testBatchSize', type=int, default=1, help='testing batch size')
 parser.add_argument('--gpu_mode', type=bool, default=False)
 parser.add_argument('--self_ensemble', type=bool, default=False)
@@ -29,12 +29,12 @@ parser.add_argument('--threads', type=int, default=0, help='number of threads fo
 parser.add_argument('--seed', type=int, default=123, help='random seed to use. Default=123')
 parser.add_argument('--gpus', default=0, type=int, help='number of gpu')
 #parser.add_argument('--input_dir', type=str, default='C:/Users/nkh/git/DGU/Flask-SuperResolution/DBPN-Pytorch/Input')
-parser.add_argument('--input_dir', type=str, default='Input')
-parser.add_argument('--output', default='./Result', help='Location to save checkpoint models')
-parser.add_argument('--test_dataset', type=str, default='Test')
+parser.add_argument('--input_dir', type=str, default='../static/images')
+parser.add_argument('--output', default='../static/images/output', help='Location to save checkpoint models')
+parser.add_argument('--test_dataset', type=str, default='user_img')
 parser.add_argument('--model_type', type=str, default='DBPN')
 parser.add_argument('--residual', type=bool, default=False)
-parser.add_argument('--model', default='pretrain/DBPN_x4.pth', help='sr pretrained base model')
+parser.add_argument('--model', default='pretrain/DBPN_x2.pth', help='sr pretrained base model')
 opt = parser.parse_args()
 
 gpus_list=range(opt.gpus)
