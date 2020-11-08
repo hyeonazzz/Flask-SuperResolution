@@ -2,20 +2,24 @@ from flask import Flask, render_template, redirect, url_for, request
 from werkzeug.utils import secure_filename
 app = Flask(__name__)
 
+uploads_dir = os.path.join(app.instance_path, 'uploads')
+os.makedirs(uploads_dir, exists_ok=True)
+
 @app.route('/', methods = ['GET', 'POST'])
 def index():
     return render_template('index.html')
 
-def upload_file():
+def upload():
     if request.method == 'POST':
-        f = request.files['file']
-        f.save('fileUpload/'+ secure_filename(f.filename))
-        return 'good'
+        # save the single "profile" file
+        profile = request.files['file']
+        profile.save(os.path.join(uploads_dir, secure_filename(profile.filename)))
+
+        return redirect(url_for('result.html'))
 
 @app.route('/result')
 def result():
     return render_template('result.html')
-
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port="5000")
