@@ -21,8 +21,7 @@ def fdbpn_post():
         profile.save(os.path.join(uploads_dir, secure_filename(user_img.filename)))
         return render_template('fdbpn_post.html', user_img=user_img)
     else:
-        print('oops')
-        return 0
+        return 'oops'
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port="5000")
