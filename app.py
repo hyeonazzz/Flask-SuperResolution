@@ -3,7 +3,7 @@ from flask import Flask, render_template, redirect, url_for, request, escape, Re
 from werkzeug.utils import secure_filename
 app = Flask(__name__)
 
-uploads_dir = os.path.join(app.instance_path, 'static/img/user_img')
+uploads_dir = os.path.join(app.instance_path, 'uploads')
 os.makedirs(uploads_dir, exist_ok=True)
 
 @app.route('/')
@@ -19,12 +19,12 @@ def fdbpn_post():
     if request.method == 'POST':
         root_path()
         user_img = request.files['user_img']
-        user_img.save = ('static/img/user_img/'+str(user_img.filename))
-        user_img_path = '/user_img/'+str(user_img.filename)
+        user_img.save = ('uploads/'+str(user_img.filename))
+        user_img_path = 'uploads/'+str(user_img.filename)
         return render_template('fdbpn_post.html', user_img=user_img)
     else:
-        print('Oops!')
-        
+        return 'oops'
+
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port="5000")
 

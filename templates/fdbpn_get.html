@@ -67,7 +67,7 @@
 	                    <div id="progressbar"></div>
 	                </div>
 	                <!-- /top-wizard -->
-	                <form id="wrapped" action="/fdbpn_post" method="POST" enctype="multipart/form-data">
+	                <form action="/fdbpn_post" method="POST" enctype="multipart/form-data">
 	                    <!-- Leave for security protection, read docs for details -->
 	                    <div id="middle-wizard">
 	                        <div>
@@ -87,7 +87,7 @@
 	                    </div>
 	                    <!-- /middle-wizard -->
 	                    <div id="bottom-wizard">
-	                        <button type="submit" name="fdbpn_post" class="forward" onclick = "location.href = '{{ url_for('fdbpn_post') }}'">Run Model</button></a>
+	                        <input type="submit" id="user_img" name="user_img" onclick = "location.href = '{{ url_for('fdbpn_post') }}'">Run Model</button></a>
 	                    </div>
 	                    <!-- /bottom-wizard -->
 	                </form>
