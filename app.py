@@ -10,7 +10,6 @@ uploads_dir = os.path.join(app.instance_path, 'static/img/user_img')
 os.makedirs(uploads_dir, exist_ok=True)
 
 def root_path():
-    	'''root 경로 유지'''
 	real_path = os.path.dirname(os.path.realpath(__file__))
 	sub_path = "\\".join(real_path.split("\\")[:-1])
 	return os.chdir(sub_path)
@@ -30,7 +29,7 @@ def fdbpn_post():
 
         user_img = request.files['user_img']
 		user_img.save('static/img/user_img'+str(user_img.filename))
-		user_img_path = 'static/img/user_img2'+str(user_img.filename)
+		user_img_path = '/user_img/'+str(user_img.filename)
 
     return render_template('fdbpn_post.html', user_img=user_img)
 
