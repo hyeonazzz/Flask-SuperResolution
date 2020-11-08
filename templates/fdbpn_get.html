@@ -80,7 +80,7 @@
 	                                <label>Attach image<br><small>(File accepted: .png, .jpg, .bmp - Max file size: 2MB for limit)</small></label>
 	                                <div class="fileupload">
 	                                    <input type="file" name="user_img" id="user_img" accept=".png,.jpg,.bmp" class="required">
-										<input type="submit" value="확인"/>
+										<input type="submit" onclick = "location.href = '{{ url_for('fdbpn_post') }}'" value="확인"/>
 	                                </div>
 	                            </div>
 	                            
