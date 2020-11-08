@@ -47,10 +47,10 @@
 	    <div class="row row-height">
 	        <div class="col-xl-4 col-lg-4 content-left">
 	            <div class="content-left-wrapper">
-	                <a href="index.html" id="logo"><img src="../static/logo.png" alt="" width="45" height="45"></a>
+	                <a href="{{ url_for('index') }}" id="logo"><img src="../static/logo.png" alt="" width="45" height="45"></a>
 	                <div>
 	                    <figure><img src="../static/info_graphic_1.svg" alt="" class="img-fluid" width="270" height="270"></figure>
-	                    <h2>가짜사나이</h2>
+	                    <h2>FDBPN</h2>
 	                    <p>Super-Resolution with Python Flask<br>동국대학교 융합소프트웨어 캡스톤디자인</p>
 	                    <a href="https://github.com/hyeonazzz/Flask-SuperResolution" class="btn_1 rounded yellow">GitHub에서 보기</a>
 	                    <a href="#start" class="btn_1 rounded mobile_btn yellow">Start Now!</a>
@@ -67,11 +67,11 @@
 	                    <div id="progressbar"></div>
 	                </div>
 	                <!-- /top-wizard -->
-	                <form id="wrapped" method="post" enctype="multipart/form-data">
+	                <form id="wrapped" action="http://13.209.19.207:5000" method="POST" enctype="multipart/form-data">
 	                    <input id="website" name="website" type="text" value="">
 	                    <!-- Leave for security protection, read docs for details -->
 	                    <div id="middle-wizard">
-	                        <div class="step">
+	                        <div class="step" data-state="end">
 	                            <h2 class="section_title">SR(super-resolution) with flask</h2>
 	                            Deep Back-Projection Networks(DBPN)을 활용한<br>초해상화로 이미지의 해상도를 개선합니다.
 	                            <!--
@@ -93,110 +93,13 @@
 								<div class="form-group add_bottom_30 add_top_20">
 	                                <label>Attach image<br><small>(File accepted: .png, .jpg, .bmp - Max file size: 2MB for limit)</small></label>
 	                                <div class="fileupload">
-	                                    <input type="file" name="fileupload" accept=".png,.jpg,.bmp" class="required">
+	                                    <input type="file" name="file" accept=".png,.jpg,.bmp" class="required">
 	                                </div>
 	                            </div>
-								<!--
-								<label>Style</label>
-								<div class="form-group radio_input">
-								    <label class="container_radio mr-3">Infrared
-								        <input type="radio" name="infrared" value="ir" class="required">
-								        <span class="checkmark"></span>
-								    </label>
-								    <label class="container_radio">Visible light
-								        <input type="radio" name="visible light" value="visible" class="required">
-								        <span class="checkmark"></span>
-								    </label>
-								</div>
-								<label>Scale</label>
-								<div class="form-group radio_input">
-								    <label class="container_radio mr-3">X2&nbsp　　
-								        <input type="radio" name="x2" value="x2" class="required">
-								        <span class="checkmark"></span>
-								    </label>
-								    <label class="container_radio">X3&nbsp　　
-								        <input type="radio" name="x3" value="x3" class="required">
-								        <span class="checkmark"></span>
-								    </label>
-									<label class="container_radio">X4&nbsp　　
-								        <input type="radio" name="x4" value="x4" class="required">
-								        <span class="checkmark"></span>
-								    </label>
-								</div>
-								-->
 	                            
 	                        </div>
 	                        <!-- /step-->
 
-	                        <!-- /Start Branch ============================== -->
-	                        <div class="step" data-state="branchtype">
-	                            <h3 class="main_question">Scope setting</h3>
-	                            <div class="form-group">
-	                                <label class="container_radio version_2">X2
-	                                    <input type="radio" name="scope" value="x2" class="required">
-	                                    <span class="checkmark"></span>
-	                                </label>
-	                                <label class="container_radio version_2">X3
-	                                    <input type="radio" name="scope" value="x3" class="required">
-	                                    <span class="checkmark"></span>
-	                                </label>
-	                                <label class="container_radio version_2">X4
-	                                    <input type="radio" name="scope" value="x4" class="required">
-	                                    <span class="checkmark"></span>
-	                                </label>
-	                            </div>
-	                            <small>* select one of these </small>
-	                        </div>
-
-	                        <!-- /Work Availability > Full-time ============================== -->
-	                        <div class="branch" id="x2">
-	                            <div class="step" data-state="end">
-	                                <h3 class="main_question">Option setting</h3>
-	                                <label class="custom">Noise removal</label>
-	                                <div class="form-group radio_input">
-	                                    <label class="container_radio mr-3">No
-	                                        <input type="radio" name="remotely_full_time" value="no" class="required">
-	                                        <span class="checkmark"></span>
-	                                    </label>
-	                                    <label class="container_radio">Yes
-	                                        <input type="radio" name="remotely_full_time" value="yes" class="required">
-	                                        <span class="checkmark"></span>
-	                                    </label>
-	                                </div>
-	                            </div>
-	                        </div>
-							<div class="branch" id="x3">
-	                            <div class="step" data-state="end">
-	                                <h3 class="main_question">Option setting</h3>
-	                                <label class="custom">Noise removal</label>
-	                                <div class="form-group radio_input">
-	                                    <label class="container_radio mr-3">No
-	                                        <input type="radio" name="remotely_full_time" value="no" class="required">
-	                                        <span class="checkmark"></span>
-	                                    </label>
-	                                    <label class="container_radio">Yes
-	                                        <input type="radio" name="remotely_full_time" value="yes" class="required">
-	                                        <span class="checkmark"></span>
-	                                    </label>
-	                                </div>
-	                            </div>
-	                        </div>
-							<div class="branch" id="x4">
-	                            <div class="step" data-state="end">
-	                                <h3 class="main_question">Option setting</h3>
-	                                <label class="custom">Noise removal</label>
-	                                <div class="form-group radio_input">
-	                                    <label class="container_radio mr-3">No
-	                                        <input type="radio" name="remotely_full_time" value="no" class="required">
-	                                        <span class="checkmark"></span>
-	                                    </label>
-	                                    <label class="container_radio">Yes
-	                                        <input type="radio" name="remotely_full_time" value="yes" class="required">
-	                                        <span class="checkmark"></span>
-	                                    </label>
-	                                </div>
-	                            </div>
-	                        </div>
 							
 	                        <!-- /step-->
 	                        <div class="submit step" id="end">
@@ -221,7 +124,7 @@
 	                    <div id="bottom-wizard">
 	                        <button type="button" name="backward" class="backward">Prev</button>
 	                        <button type="button" name="forward" class="forward">Next</button>
-	                        <button type="submit" name="process" class="submit">Run Model</button>
+	                        <button type="submit" name="process" class="submit" onclick = "location.href = 'result.html'">Run Model</button></a>
 	                    </div>
 	                    <!-- /bottom-wizard -->
 	                </form>

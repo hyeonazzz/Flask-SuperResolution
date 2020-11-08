@@ -6,10 +6,11 @@ app = Flask(__name__)
 uploads_dir = os.path.join(app.instance_path, 'uploads')
 os.makedirs(uploads_dir, exist_ok=True)
 
-@app.route('/', methods = ['GET', 'POST'])
+@app.route('/')
 def index():
     return render_template('index.html')
 
+@app.route('/upload', methods = ['GET', 'POST'])
 def upload():
     if request.method == 'POST':
         # save the single "profile" file
