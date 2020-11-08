@@ -17,9 +17,8 @@ def fdbpn_get():
 @app.route('/fdbpn_post', methods = ['GET', 'POST'])
 def fdbpn_post():
     global user_img
-    if request.method == 'POST':
-        user_img = request.files['user_img']
-        profile.save(os.path.join(uploads_dir, secure_filename(user_img.filename)))
+    user_img = request.files['user_img']
+    profile.save(os.path.join(uploads_dir, secure_filename(user_img.filename)))
 
     return render_template('fdbpn_post.html', user_img=user_img)
 
