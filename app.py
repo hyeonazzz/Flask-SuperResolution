@@ -3,7 +3,7 @@ from flask import Flask, render_template, redirect, url_for, request
 from werkzeug.utils import secure_filename
 app = Flask(__name__)
 
-uploads_dir = os.path.join(app.instance_path, 'uploads')
+uploads_dir = os.path.join(app.instance_path, 'static/img/user_img')
 os.makedirs(uploads_dir, exist_ok=True)
 
 @app.route('/')
@@ -18,10 +18,10 @@ def fdbpn_get():
 def fdbpn_post():
     if request.method == 'POST':
         # save the single "profile" file
-        profile = request.files['file']
-        profile.save(os.path.join(uploads_dir, secure_filename(profile.filename)))
+        user_img = request.files['user_img']
+        profile.save(os.path.join(uploads_dir, secure_filename(user_img.filename)))
 
-    return render_template('fdbpn_post.html')
+    return render_template('fdbpn_post.html', user_img=user_img)
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port="5000")
