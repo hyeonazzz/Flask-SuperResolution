@@ -2,7 +2,7 @@ import os, sys
 from flask import Flask, render_template, redirect, url_for, request, escape, Response, g, make_response
 from werkzeug.utils import secure_filename
 
-UPLOAD_DIR = 'static/images'
+UPLOAD_DIR = 'static/images/user_img'
 app = Flask(__name__)
 app.config['UPLOAD_DIR'] = UPLOAD_DIR
 
