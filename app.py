@@ -11,8 +11,7 @@ def index():
     return render_template('index.html')
 
 @app.route('/fdbpn_get')
-def fdbpn_get
-
+def fdbpn_get():
     return render_template('fdbpn_get.html')
 
 @app.route('/fdbpn_post', methods = ['GET', 'POST'])
@@ -21,7 +20,7 @@ def fdbpn_post():
         # save the single "profile" file
         profile = request.files['file']
         profile.save(os.path.join(uploads_dir, secure_filename(profile.filename)))
-        
+
     return render_template('fdbpn_post.html')
 
 if __name__ == '__main__':
