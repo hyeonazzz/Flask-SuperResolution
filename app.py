@@ -18,7 +18,7 @@ def fdbpn_get():
 def fdbpn_post():
     if request.method == "POST":
         try:
-            os.remove(UPLOAD_DIR)
+            os.remove('UPLOAD_DIR')
             file_handle.close()
         except Exception as error:
             app.logger.error("Error removing or closing downloaded file handle", error)
