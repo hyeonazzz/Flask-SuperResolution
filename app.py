@@ -22,6 +22,7 @@ def fdbpn_post():
         return render_template('fdbpn_post.html', user_img=user_img)
     else:
         print('oops')
+        return
         
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port="5000")
