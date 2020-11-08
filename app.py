@@ -14,7 +14,7 @@ def result():
 def upload_file():
     if request.method == 'POST':
         f = request.files['file']
-        f.save('Uploads/'+ secure_filename(f.filename))
+        f.save('fileUpload'+ secure_filename(f.filename))
         return 'good'
 
 if __name__ == '__main__':
