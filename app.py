@@ -10,7 +10,7 @@ def upload_file():
     if request.method == 'POST':
         f = request.files['file']
         f.save('Uploads/'+ secure_filename(f.filename))
-        return 'done'
+        return 'good'
     
 @app.route('/result')
 def result():
