@@ -27,8 +27,10 @@ print('os.remove')
 def run_eval(filePath):
     if os.path.exists(filePath):
         import eval
+        return 'eval'
     else:
-        print('No file detected')
+        return 'Oops'
+
 
 removeInput('static/images/user_img')
 removeOutput('static/images/output/user_img')
@@ -51,8 +53,6 @@ def fdbpn_post():
     
     run_eval('static/images/user_img')
     return render_template('fdbpn_post.html', user_img=user_img)
-
-run_eval('static/images/user_img')
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port="5000", debug=True)
