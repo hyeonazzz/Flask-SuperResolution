@@ -1,1 +1,1 @@
-from DBPNPytorch.dbpn import Net as DBPN
+from DBPNPytorch.dbpn import Net
