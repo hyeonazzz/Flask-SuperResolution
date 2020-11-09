@@ -48,10 +48,8 @@ def fdbpn_post():
         fname = secure_filename(user_img.filename)
         path = os.path.join(app.config['UPLOAD_DIR'], fname)
         user_img.save(path)
-        
+        run_eval('static/images/user_img')
     return render_template('fdbpn_post.html', user_img=user_img)
-
-run_eval('static/images/user_img')
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port="5000", debug=True)
