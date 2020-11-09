@@ -16,6 +16,13 @@ def removeAllFile(filePath):
             return 'already clean'
 print('os.remove')
 
+def run_eval():
+    if os.path.exists(filePath):
+        import eval
+    else:
+        print('No file detected')
+
+
 removeAllFile('static/images/user_img')
 removeAllFile('static/images/output/user_img')
 @app.route('/')
@@ -33,10 +40,11 @@ def fdbpn_post():
         fname = secure_filename(user_img.filename)
         path = os.path.join(app.config['UPLOAD_DIR'], fname)
         user_img.save(path)
-        time.sleep(2)
-        from eval import eval
-        return render_template('fdbpn_post.html', user_img=user_img)
+        
     return render_template('fdbpn_post.html', user_img=user_img)
+
+run_eval()
+
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port="5000", debug=True)
 
