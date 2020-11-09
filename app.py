@@ -1,5 +1,5 @@
 import os, sys
-from DBPNPytorch.eval import eval
+from DBPNPytorch.eval import *
 from flask import Flask, render_template, redirect, url_for, request, escape, Response, g, make_response
 from werkzeug.utils import secure_filename
 
