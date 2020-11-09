@@ -8,7 +8,7 @@ UPLOAD_DIR = 'static/images/user_img'
 app = Flask(__name__)
 app.config['UPLOAD_DIR'] = UPLOAD_DIR
 
-def removeAllFile(filePath):
+def removeInput(filePath):
     if os.path.exists(filePath):
         for file in os.scandir(filePath):
             os.remove(file.path)
@@ -16,15 +16,23 @@ def removeAllFile(filePath):
             return 'already clean'
 print('os.remove')
 
-def run_eval():
+def removeOutput(filePath):
+    if os.path.exists(filePath):
+        for file in os.scandir(filePath):
+            os.remove(file.path)
+        else:
+            return 'already clean'
+print('os.remove')
+
+def run_eval(filePath):
     if os.path.exists(filePath):
         import eval
     else:
         print('No file detected')
 
+removeInput('static/images/user_img')
+removeOutput('static/images/output/user_img')
 
-removeAllFile('static/images/user_img')
-removeAllFile('static/images/output/user_img')
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -43,7 +51,7 @@ def fdbpn_post():
         
     return render_template('fdbpn_post.html', user_img=user_img)
 
-run_eval()
+run_eval('static/images/user_img')
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port="5000", debug=True)
