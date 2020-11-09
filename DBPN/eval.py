@@ -105,7 +105,7 @@ def eval():
         t1 = time.time()
         print("===> Processing: %s || Timer: %.4f sec." % (name[0], (t1 - t0)))
         save_img(prediction.cpu().data, name[0])
-        return render_template('fdbpn_post.html')
+        return render_template('fdbpn_post.html', user_img=user_img)
         
 def save_img(img, img_name):
     save_img = img.squeeze().clamp(0, 1).numpy().transpose(1,2,0)
@@ -206,3 +206,4 @@ def chop_forward(x, model, scale, shave=8, min_size=80000, nGPUs=opt.gpus):
 
 ##Eval Start!!!!
 eval()
+return render_template('fdbpn_post.html', user_img=user_img)
