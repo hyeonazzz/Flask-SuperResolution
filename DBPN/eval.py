@@ -34,7 +34,7 @@ parser.add_argument('--output', default='static/images/output', help='Location t
 parser.add_argument('--test_dataset', type=str, default='user_img')
 parser.add_argument('--model_type', type=str, default='DBPN')
 parser.add_argument('--residual', type=bool, default=False)
-parser.add_argument('--model', default='pretrain/DBPN_x2.pth', help='sr pretrained base model')
+parser.add_argument('--model', default='DBPN/pretrain/DBPN_x2.pth', help='sr pretrained base model')
 opt = parser.parse_args()
 
 gpus_list=range(opt.gpus)
