@@ -39,9 +39,9 @@ def fdbpn_post():
 @app.route('/result')
 def result():
     time.sleep(2)
-    #import eval
     return render_template('result.html')
-
+    import eval
+    
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port="5000", debug=True)
 
