@@ -33,12 +33,12 @@ def fdbpn_post():
         fname = secure_filename(user_img.filename)
         path = os.path.join(app.config['UPLOAD_DIR'], fname)
         user_img.save(path)
-        time.sleep(30)
+        time.sleep(2)
         import eval
-        time.sleep(30)
+        time.sleep(2)
     return render_template('fdbpn_post.html', user_img=user_img)
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port="5000")
+    app.run(host="0.0.0.0", port="5000", debug=True)
 
 
