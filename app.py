@@ -35,8 +35,8 @@ def fdbpn_post():
         user_img.save(path)
         time.sleep(2)
         from eval import eval
+        return render_template('fdbpn_post.html', user_img=user_img)
     return render_template('fdbpn_post.html', user_img=user_img)
-
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port="5000", debug=True)
 
