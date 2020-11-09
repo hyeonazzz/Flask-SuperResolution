@@ -7,7 +7,7 @@ import torch.nn as nn
 import torch.optim as optim
 from torch.autograd import Variable
 from torch.utils.data import DataLoader
-from DBPNPytorch.dbpn import Net as DBPN
+from dbpn import Net as DBPN
 from dbpn_v1 import Net as DBPNLL
 from dbpn_iterative import Net as DBPNITER
 from data import get_eval_set
