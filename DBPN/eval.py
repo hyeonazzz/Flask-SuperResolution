@@ -16,7 +16,7 @@ from functools import reduce
 from scipy.misc import imsave
 import scipy.io as sio
 import time
-import cv2
+from cv2 import cv as cv2
 
 # Training settings
 parser = argparse.ArgumentParser(description='PyTorch Super Res Example')
