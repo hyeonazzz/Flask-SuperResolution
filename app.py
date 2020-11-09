@@ -44,6 +44,7 @@ def fdbpn_post():
         user_img.save(path)
 
         import eval
+        time.sleep(40)
         output_img = request.files['output/user_img']
         fname = secure_filename(output_img.filename)
     return render_template('fdbpn_post.html', user_img=user_img, output_img=output_img)
