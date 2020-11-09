@@ -39,7 +39,7 @@ def fdbpn_post():
 @app.route('/result')
 def result():
     time.sleep(2)
-    import eval
+    #import eval
     return render_template('result.html')
 
 if __name__ == '__main__':
