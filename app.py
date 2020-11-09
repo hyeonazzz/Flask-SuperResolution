@@ -34,13 +34,13 @@ def fdbpn_post():
         path = os.path.join(app.config['UPLOAD_DIR'], fname)
         user_img.save(path)
         time.sleep(2)
-    return render_template('fdbpn_post2.html', user_img=user_img)
+    return render_template('fdbpn_post.html', user_img=user_img)
 
-@app.route('/fdbpn_post2')
-def fdbpn_post2():
+@app.route('/result')
+def result():
     time.sleep(2)
     import eval
-    return render_template('fdbpn_post2.html')
+    return render_template('result.html')
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port="5000", debug=True)
