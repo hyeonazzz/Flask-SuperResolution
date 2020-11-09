@@ -3,7 +3,7 @@ import time
 from flask import Flask, render_template, redirect, url_for, request, escape, Response, g, make_response
 from werkzeug.utils import secure_filename
 sys.path.append('DBPN')
-import eval
+from eval import *
 
 
 UPLOAD_DIR = 'static/images/user_img'
