@@ -4,6 +4,8 @@ from flask import Flask, render_template, redirect, url_for, request, escape, Re
 from werkzeug.utils import secure_filename
 sys.path.append('DBPN')
 
+
+
 UPLOAD_DIR = 'static/images/user_img'
 app = Flask(__name__)
 app.config['UPLOAD_DIR'] = UPLOAD_DIR
@@ -50,9 +52,11 @@ def fdbpn_post():
         fname = secure_filename(user_img.filename)
         path = os.path.join(app.config['UPLOAD_DIR'], fname)
         user_img.save(path)
-    
-    run_eval('static/images/user_img')
-    return render_template('fdbpn_post.html', user_img=user_img)
+
+        run_eval('static/images/user_img')
+        output_img = request.files['output/user_img']
+        fname = secure_filename(output_img.filename)
+    return render_template('fdbpn_post.html', user_img=user_img, output_img=output_img)
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port="5000", debug=True)
