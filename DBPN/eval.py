@@ -64,7 +64,6 @@ else:
 if cuda:
     model = torch.nn.DataParallel(model, device_ids=gpus_list)
 
-#여기까진 일단됨.
 from collections import OrderedDict
 new_state_dict = OrderedDict()
 state_dict = torch.load(opt.model, map_location=lambda storage, loc: storage)
@@ -106,7 +105,6 @@ def eval():
         t1 = time.time()
         print("===> Processing: %s || Timer: %.4f sec." % (name[0], (t1 - t0)))
         save_img(prediction.cpu().data, name[0])
-        return render_template('fdbpn_post.html', user_img=user_img)
         
 def save_img(img, img_name):
     save_img = img.squeeze().clamp(0, 1).numpy().transpose(1,2,0)

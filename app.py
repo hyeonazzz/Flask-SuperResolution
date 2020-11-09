@@ -34,7 +34,7 @@ def fdbpn_post():
         path = os.path.join(app.config['UPLOAD_DIR'], fname)
         user_img.save(path)
         time.sleep(2)
-        import eval
+        from eval import eval
         time.sleep(2)
     return render_template('fdbpn_post.html', user_img=user_img)
 
