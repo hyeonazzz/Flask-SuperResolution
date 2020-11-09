@@ -2,8 +2,7 @@ import os, sys
 import time
 from flask import Flask, render_template, redirect, url_for, request, escape, Response, g, make_response
 from werkzeug.utils import secure_filename
-sys.path.append('DBPN')
-
+sys.path.append('DBPN') import eval
 
 
 UPLOAD_DIR = 'static/images/user_img'
@@ -16,7 +15,7 @@ def removeInput(filePath):
             os.remove(file.path)
         else:
             return 'already clean'
-print('os.remove')
+print('in.remove')
 
 def removeOutput(filePath):
     if os.path.exists(filePath):
@@ -24,15 +23,7 @@ def removeOutput(filePath):
             os.remove(file.path)
         else:
             return 'already clean'
-print('os.remove')
-
-def run_eval(filePath):
-    if os.path.exists(filePath):
-        import eval
-        return 'eval'
-    else:
-        return 'Oops'
-
+print('out.remove')
 
 removeInput('static/images/user_img')
 removeOutput('static/images/output/user_img')
@@ -53,7 +44,7 @@ def fdbpn_post():
         path = os.path.join(app.config['UPLOAD_DIR'], fname)
         user_img.save(path)
 
-        run_eval('static/images/user_img')
+        eval.eval()
         output_img = request.files['output/user_img']
         fname = secure_filename(output_img.filename)
     return render_template('fdbpn_post.html', user_img=user_img, output_img=output_img)
