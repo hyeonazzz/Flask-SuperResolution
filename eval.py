@@ -31,7 +31,7 @@ parser.add_argument('--threads', type=int, default=0, help='number of threads fo
 parser.add_argument('--seed', type=int, default=123, help='random seed to use. Default=123')
 parser.add_argument('--gpus', default=0, type=int, help='number of gpu')
 #parser.add_argument('--input_dir', type=str, default='static/images')
-parser.add_argument('--input_dir', type=str, default='/home/ubuntu/Flask-SuperResolution/static/images/user_img')
+parser.add_argument('--input_dir', type=str, default='/home/ubuntu/Flask-SuperResolution/static/images')
 #parser.add_argument('--output', default='static/images/output', help='Location to save checkpoint models')
 parser.add_argument('--output', default='/home/ubuntu/Flask-SuperResolution/static/images/output', help='Location to save checkpoint models')
 parser.add_argument('--test_dataset', type=str, default='user_img')
@@ -55,9 +55,6 @@ print('===> Loading datasets')
 test_set = get_eval_set(os.path.join(opt.input_dir,opt.test_dataset), opt.upscale_factor)
 print(test_set)
 testing_data_loader = DataLoader(dataset=test_set, num_workers=opt.threads, batch_size=opt.testBatchSize, shuffle=False)
-
-
-
 
 if cuda:
     model = model.cuda(gpus_list[0])
