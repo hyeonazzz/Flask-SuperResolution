@@ -1,6 +1,6 @@
 from __future__ import print_function
 import argparse
-import os
+import os, sys
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -14,11 +14,11 @@ import scipy.io as sio
 import time
 import cv2
 
-#sys.path.append('DBPN')
-from DBPN.dbpn import Net as DBPN
-from DBPN.dbpn_v1 import Net as DBPNLL
-from DBPN.dbpn_iterative import Net as DBPNITER
-from DBPN.data import get_eval_set
+sys.path.append('DBPN')
+from dbpn import Net as DBPN
+from dbpn_v1 import Net as DBPNLL
+from dbpn_iterative import Net as DBPNITER
+from data import get_eval_set
 
 # Training settings
 parser = argparse.ArgumentParser(description='PyTorch Super Res Example')
