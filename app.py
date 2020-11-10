@@ -45,7 +45,7 @@ def fdbpn_post():
 
         #output_img = eval.
         #output_img = request.files['output/user_img']
-        fname = secure_filename(output_img.filename)
+        #fname = secure_filename(output_img.filename)
     return render_template('fdbpn_post.html', user_img=user_img, output_img=output_img)
 
 if __name__ == '__main__':
