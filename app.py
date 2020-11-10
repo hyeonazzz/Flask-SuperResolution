@@ -46,7 +46,7 @@ def fdbpn_post():
         #output_img = eval.
         #output_img = request.files['output/user_img']
         #fname = secure_filename(output_img.filename)
-    return render_template('fdbpn_post.html', user_img=user_img, output_img=output_img)
+    return render_template('fdbpn_post.html', user_img=user_img)
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port="5000", debug=True)
