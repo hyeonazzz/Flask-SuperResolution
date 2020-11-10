@@ -82,32 +82,36 @@ def eval_func():
     model.load_state_dict(new_state_dict)
 
     print('Pre-trained SR model is loaded.')
-    model.eval()
-    for batch in testing_data_loader:
-        with torch.no_grad():
-            input, bicubic, name = Variable(batch[0]), Variable(batch[1]), batch[2]
-        if cuda:
-            input = input.cuda(gpus_list[0])
-            bicubic = bicubic.cuda(gpus_list[0])
-
-        t0 = time.time()
-        if opt.chop_forward:
+    try :
+        model.eval()
+        for batch in testing_data_loader:
             with torch.no_grad():
-                prediction = chop_forward(input, model, opt.upscale_factor)
-        else:
-            if opt.self_ensemble:
+                input, bicubic, name = Variable(batch[0]), Variable(batch[1]), batch[2]
+            if cuda:
+                input = input.cuda(gpus_list[0])
+                bicubic = bicubic.cuda(gpus_list[0])
+
+            t0 = time.time()
+            if opt.chop_forward:
                 with torch.no_grad():
-                    prediction = x8_forward(input, model)
+                    prediction = chop_forward(input, model, opt.upscale_factor)
             else:
-                with torch.no_grad():
-                    prediction = model(input)
+                if opt.self_ensemble:
+                    with torch.no_grad():
+                        prediction = x8_forward(input, model)
+                else:
+                    with torch.no_grad():
+                        prediction = model(input)
 
-        if opt.residual:
-            prediction = prediction + bicubic
+            if opt.residual:
+                prediction = prediction + bicubic
 
-        t1 = time.time()
-        print("===> Processing: %s || Timer: %.4f sec." % (name[0], (t1 - t0)))
-        save_img(prediction.cpu().data, name[0])
+            t1 = time.time()
+            print("===> Processing: %s || Timer: %.4f sec." % (name[0], (t1 - t0)))
+            save_img(prediction.cpu().data, name[0])
+    except Exception as e:
+        print(e)
+        
         
 def save_img(img, img_name):
     save_img = img.squeeze().clamp(0, 1).numpy().transpose(1,2,0)
