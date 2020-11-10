@@ -84,7 +84,7 @@ def eval_func():
     print('Pre-trained SR model is loaded.')
     try :
         model.eval()
-        print(testing_data_loader)
+        print(testing_data_loader.dataset)
         for batch in testing_data_loader:
             with torch.no_grad():
                 input, bicubic, name = Variable(batch[0]), Variable(batch[1]), batch[2]
