@@ -3,6 +3,7 @@ import time
 from flask import Flask, render_template, redirect, url_for, request, escape, Response, g, make_response
 from werkzeug.utils import secure_filename
 sys.path.append('DBPN')
+from eval import *
 
 UPLOAD_DIR = 'static/images/user_img'
 app = Flask(__name__)
@@ -43,7 +44,7 @@ def fdbpn_post():
         path = os.path.join(app.config['UPLOAD_DIR'], fname)
         user_img.save(path)
 
-        #output_img = eval.
+        eval_func()
         #output_img = request.files['output/user_img']
         #fname = secure_filename(output_img.filename)
     return render_template('fdbpn_post.html', user_img=user_img)

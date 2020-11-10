@@ -55,32 +55,33 @@ test_set = get_eval_set(os.path.join(opt.input_dir,opt.test_dataset), opt.upscal
 testing_data_loader = DataLoader(dataset=test_set, num_workers=opt.threads, batch_size=opt.testBatchSize, shuffle=False)
 
 
-print('===> Building model')
-if opt.model_type == 'DBPNLL':
-    model = DBPNLL(num_channels=3, base_filter=64,  feat = 256, num_stages=10, scale_factor=opt.upscale_factor) ###D-DBPN
-elif opt.model_type == 'DBPN-RES-MR64-3':
-    model = DBPNITER(num_channels=3, base_filter=64,  feat = 256, num_stages=3, scale_factor=opt.upscale_factor) ###D-DBPN
-else:
-    model = DBPN(num_channels=3, base_filter=64,  feat = 256, num_stages=7, scale_factor=opt.upscale_factor) ###D-DBPN
 
-if cuda:
-    model = torch.nn.DataParallel(model, device_ids=gpus_list)
-
-from collections import OrderedDict
-new_state_dict = OrderedDict()
-state_dict = torch.load(opt.model, map_location=lambda storage, loc: storage)
-for k, v in state_dict.items():
-    name = k[7:] # remove `module.`
-    new_state_dict[name] = v
-
-model.load_state_dict(new_state_dict)
-
-print('Pre-trained SR model is loaded.')
 
 if cuda:
     model = model.cuda(gpus_list[0])
 
-def eval():
+def eval_func():
+    print('===> Building model')
+    if opt.model_type == 'DBPNLL':
+        model = DBPNLL(num_channels=3, base_filter=64,  feat = 256, num_stages=10, scale_factor=opt.upscale_factor) ###D-DBPN
+    elif opt.model_type == 'DBPN-RES-MR64-3':
+        model = DBPNITER(num_channels=3, base_filter=64,  feat = 256, num_stages=3, scale_factor=opt.upscale_factor) ###D-DBPN
+    else:
+        model = DBPN(num_channels=3, base_filter=64,  feat = 256, num_stages=7, scale_factor=opt.upscale_factor) ###D-DBPN
+
+    if cuda:
+        model = torch.nn.DataParallel(model, device_ids=gpus_list)
+
+    from collections import OrderedDict
+    new_state_dict = OrderedDict()
+    state_dict = torch.load(opt.model, map_location=lambda storage, loc: storage)
+    for k, v in state_dict.items():
+        name = k[7:] # remove `module.`
+        new_state_dict[name] = v
+
+    model.load_state_dict(new_state_dict)
+
+    print('Pre-trained SR model is loaded.')
     model.eval()
     for batch in testing_data_loader:
         with torch.no_grad():
@@ -118,4 +119,4 @@ def save_img(img, img_name):
     save_fn = save_dir +'/'+ img_name
     cv2.imwrite(save_fn, cv2.cvtColor(save_img*255, cv2.COLOR_BGR2RGB),  [cv2.IMWRITE_PNG_COMPRESSION, 0])
 ##Eval Start!!!!
-eval()
+#eval()
