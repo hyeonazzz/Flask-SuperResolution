@@ -45,20 +45,6 @@
 	
 	<div class="container-fluid">
 	    <div class="row row-height">
-	        <div class="col-xl-4 col-lg-4 content-left">
-	            <div class="content-left-wrapper">
-	                <a href="{{ url_for('index') }}" id="logo"><img src="../static/logo.png" alt="" width="45" height="45"></a>
-	                <div>
-	                    <figure><img src="../static/info_graphic_1.svg" alt="" class="img-fluid" width="270" height="270"></figure>
-	                    <h2>FDBPN</h2>
-	                    <p>Super-Resolution with Python Flask<br>동국대학교 융합소프트웨어 캡스톤디자인</p>
-	                    <a href="https://github.com/hyeonazzz/Flask-SuperResolution" class="btn_1 rounded yellow">GitHub에서 보기</a>
-	                    <a href="#start" class="btn_1 rounded mobile_btn yellow">Start Now!</a>
-	                </div>
-	                <div class="copy">© 2020</div>
-	            </div>
-	            <!-- /content-left-wrapper -->
-	        </div>
 	        <!-- /content-left -->
 	        <div class="col-xl-8 col-lg-8 content-right" id="start">
 	            <div id="wizard_container">
@@ -67,12 +53,12 @@
 	                    <div id="progressbar"></div>
 	                </div>
 	                <!-- /top-wizard -->
-	                <form action="/fdbpn_post" method="POST" enctype="multipart/form-data">
+	                <form action="/sr_post" method="POST" enctype="multipart/form-data">
 	                    <!-- Leave for security protection, read docs for details -->
 	                    <div id="middle-wizard">
 	                        <div>
 	                            <h2 class="section_title">SR(super-resolution) with flask</h2>
-	                            Deep Back-Projection Networks(DBPN)을 활용한<br>초해상화로 이미지의 해상도를 개선합니다.
+	                            Generative Adversarial Network을 활용한<br>초해상화로 이미지의 해상도를 개선합니다.
 								<div class="form-group add_top_30">
 								</div>
 								<div class="form-group add_bottom_30 add_top_20">
@@ -87,7 +73,7 @@
 	                    </div>
 	                    <!-- /middle-wizard -->
 	                    <div id="bottom-wizard">
-	                        <input type="submit" id="user_img" name="user_img" onclick = "location.href = '{{ url_for('fdbpn_post') }}'">Run Model</button>
+	                        <input type="submit" id="user_img" name="user_img" onclick = "location.href = '{{ url_for('sr_post') }}'">Run Model</button>
 	                    </div>
 	                    <!-- /bottom-wizard -->
 	                </form>

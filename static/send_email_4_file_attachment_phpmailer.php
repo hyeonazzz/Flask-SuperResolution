@@ -21,7 +21,7 @@
     
     <script type="text/javascript">
     function delayedRedirect(){
-        window.location = Flask.url_for('fdbpn_post', {})
+        window.location = Flask.url_for('sr_post', {})
     }
     </script>
 
