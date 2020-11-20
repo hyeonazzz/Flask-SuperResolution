@@ -60,9 +60,8 @@ removeOutput('static/images/output/user_img')
 def index():
     return render_template('index.html')
 
-@app.route('/sr_get')
-def sr_get():
-    return render_template('sr_get.html')
+removeInput('static/images/user_img')
+removeOutput('static/images/output/user_img')
 
 @app.route('/result', methods = ['GET', 'POST'])
 def result():
