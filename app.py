@@ -8,6 +8,9 @@ import argparse
 
 parser = argparse.ArgumentParser()
 
+def str2bool(v):
+    return v.lower() in ('true')
+
 parser.add_argument("--LR_path", type = str, default = 'static/images/user_img')
 parser.add_argument("--GT_path", type = str, default = '')
 parser.add_argument("--res_num", type = int, default = 16)
