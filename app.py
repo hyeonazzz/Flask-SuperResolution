@@ -4,6 +4,9 @@ from flask import Flask, render_template, redirect, url_for, request, escape, Re
 from werkzeug.utils import secure_filename
 import main
 from mode import test_only
+import argparse
+
+parser = argparse.ArgumentParser()
 
 parser.add_argument("--LR_path", type = str, default = 'static/images/user_img')
 parser.add_argument("--GT_path", type = str, default = '')
