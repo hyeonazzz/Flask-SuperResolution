@@ -32,14 +32,7 @@ parser.add_argument("--mode", type = str, default = 'test_only')
 
 args = parser.parse_args()
 
-if args.mode == 'train':
-    train(args)
-    
-elif args.mode == 'test':
-    test(args)
-    
-elif args.mode == 'test_only':
-    test_only(args)
+
 
 UPLOAD_DIR = 'static/images/user_img'
 app = Flask(__name__)
@@ -80,9 +73,14 @@ def fdbpn_post():
         path = os.path.join(app.config['UPLOAD_DIR'], fname)
         user_img.save(path)
 
-        test_only(args)
-        #output_img = request.files['output/user_img']
-        #fname = secure_filename(output_img.filename)
+        if args.mode == 'train':
+            train(args)
+    
+        elif args.mode == 'test':
+            test(args)
+    
+        elif args.mode == 'test_only':
+            test_only(args)
     return render_template('fdbpn_post.html', user_img=user_img)
 
 if __name__ == '__main__':
