@@ -1,6 +1,6 @@
 # NEWS
 * Nov 11, 2020 -> ADD DBPN-Pytorch [alterzero/DBPN-Pytorch](https://github.com/alterzero/DBPN-Pytorch)
-* Nov 10, 2020 -> ADD HTML src [FDBPN | Super-Resolution](http://13.209.19.207:5000/) 
+* Nov 10, 2020 -> ADD HTML src [FlaskSR | Super-Resolution](http://13.209.19.207:5000/) 
 
 ## Download Models
 Pretrained Models

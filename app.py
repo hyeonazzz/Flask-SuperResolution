@@ -64,8 +64,8 @@ def index():
 def sr_get():
     return render_template('sr_get.html')
 
-@app.route('/sr_post', methods = ['GET', 'POST'])
-def sr_post():
+@app.route('/result', methods = ['GET', 'POST'])
+def result():
     if request.method == "POST":
         global user_img
         user_img = request.files['user_img']
@@ -81,7 +81,7 @@ def sr_post():
     
         elif args.mode == 'test_only':
             test_only(args)
-    return render_template('sr_post.html', user_img=user_img)
+    return render_template('result.html', user_img=user_img)
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port="5000", debug=True)

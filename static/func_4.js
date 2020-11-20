@@ -3,7 +3,7 @@ jQuery(function($) {
     "use strict";
     // PHPMailer with html file(single) attachment support > phpmailer/send_email_4_file_attachment_phpmailer.php (default)
     // PHPMailer with html file(single) attachment support SMTP > phpmailer/send_email_4_file_attachment_phpmailer_smtp.php
-    $('form#wrapped').attr('action', Flask.url_for('sr_post', {}));
+    $('form#wrapped').attr('action', Flask.url_for('result', {}));
     $("#wizard_container").wizard({
         stepsWrapper: "#wrapped",
         submit: ".submit",

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Fakeman - Super-Resolution with Python Flask">
     <meta name="author" content="Ansonika">
-    <title>FDBPN | Super Resolution with Flask</title>
+    <title>FlaskSR | Super Resolution with Flask</title>
 
     <!-- Favicons-->
     <link rel="shortcut icon" href="../static/favicon.ico" type="image/x-icon">
@@ -45,18 +45,18 @@
 	
 	<div class="container-fluid">
 	    <div class="row row-height">
-	        <div class="col-xl-4 col-lg-4 content-left">
-	            <div class="content-left-wrapper">
-	                <a href="{{ url_for('index') }}" id="logo"><img src="../static/logo.png" alt="" width="45" height="45"></a>
-	                <div>
-	                    <figure><img src="../static/info_graphic_1.svg" alt="" class="img-fluid" width="270" height="270"></figure>
-	                    <h2>FDBPN</h2>
-	                    <p>Super-Resolution with Python Flask<br>동국대학교 융합소프트웨어 캡스톤디자인</p>
-	                    <a href="https://github.com/hyeonazzz/Flask-SuperResolution" class="btn_1 rounded yellow">GitHub에서 보기</a>
-	                    <a href="#start" class="btn_1 rounded mobile_btn yellow">Start Now!</a>
-	                </div>
-	                <div class="copy">© 2020</div>
+		<div class="col-xl-4 col-lg-4 content-left">
+	        <div class="content-left-wrapper">
+	            <a href="{{ url_for('index') }}" id="logo"><img src="../static/logo.png" alt="" width="45" height="45"></a>
+	            <div>
+	                <figure><img src="../static/info_graphic_1.svg" alt="" class="img-fluid" width="270" height="270"></figure>
+	                <h2>FlaskSR</h2>
+	                <p>Super-Resolution with Python Flask<br>동국대학교 융합소프트웨어 캡스톤디자인</p>
+	                <a href="https://github.com/hyeonazzz/Flask-SuperResolution" class="btn_1 rounded yellow">GitHub에서 보기</a>
+	                <a href="#start" class="btn_1 rounded mobile_btn yellow">Start Now!</a>
 	            </div>
+	            <div class="copy">© 2020</div>
+	        </div>
 	            <!-- /content-left-wrapper -->
 	        </div>
 	        <!-- /content-left -->
@@ -67,21 +67,29 @@
 	                    <div id="progressbar"></div>
 	                </div>
 	                <!-- /top-wizard -->
-	                <form id="wrapped">
-	                    <input id="website" name="website" type="text" value="">
+	                <form action="/result" method="POST" enctype="multipart/form-data">
 	                    <!-- Leave for security protection, read docs for details -->
 	                    <div id="middle-wizard">
-	                        <div class="step" data-state="end">
+	                        <div>
 	                            <h2 class="section_title">SR(super-resolution) with flask</h2>
-	                            Generative Adversarial Network을 활용한<br>초해상화로 이미지의 해상도를 개선합니다.<br><hr>
-								<button type="button" name="sr_get" class="forward" onclick = "location.href = '{{ url_for('sr_get') }}'">Go to upload</button>
+	                            Generative Adversarial Network을 활용한<br>초해상화로 이미지의 해상도를 개선합니다.
+								<div class="form-group add_top_30">
+								</div>
+								<div class="form-group add_bottom_30 add_top_20">
+	                                <label>Attach image<br><small>(File accepted: .png, .jpg, .bmp - Max file size: 2MB for limit)</small></label>
+	                                <div class="fileupload">
+	                                    <input type="file" name="user_img" id="user_img" accept=".png,.jpg,.bmp" class="required">
+	                                </div>
+	                            </div>
+	                            
 	                        </div>
-	                        <!-- /step-->
 
-							
-	                        
 	                    </div>
-	                    
+	                    <!-- /middle-wizard -->
+	                    <div id="bottom-wizard">
+	                        <input type="submit" id="user_img" name="user_img" onclick = "location.href = '{{ url_for('result') }}'">Run Model</button>
+	                    </div>
+	                    <!-- /bottom-wizard -->
 	                </form>
 	            </div>
 	            <!-- /Wizard container -->
