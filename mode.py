@@ -201,6 +201,6 @@ def test_only(args):
             output = (output + 1.0) / 2.0
             output = output.transpose(1,2,0)
             result = Image.fromarray((output * 255.0).astype(np.uint8))
-            result.save('static/images/output/user_img/output.png'%i)
+            result.save('static/images/output/user_img/output.png')
 
 
