@@ -2,7 +2,8 @@ import os, sys
 import time
 from flask import Flask, render_template, redirect, url_for, request, escape, Response, g, make_response
 from werkzeug.utils import secure_filename
-from main import *
+import main
+from mode import test_only
 
 UPLOAD_DIR = 'static/images/user_img'
 app = Flask(__name__)
