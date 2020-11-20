@@ -67,6 +67,7 @@ def sr_get():
 @app.route('/sr_post', methods = ['GET', 'POST'])
 def sr_post():
     if request.method == "POST":
+        global user_img
         user_img = request.files['user_img']
         fname = secure_filename(user_img.filename)
         path = os.path.join(app.config['UPLOAD_DIR'], fname)
