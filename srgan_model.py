@@ -18,7 +18,7 @@ class Generator(nn.Module):
         #if(scale == 4):
         #    upsample_blocks = [Upsampler(channel = n_feats, kernel_size = 3, scale = 2, act = act) for _ in range(2)]
         #else:
-        upsample_blocks = [Upsampler(channel = n_feats, kernel_size = 3, scale = 2, act = act)]
+        upsample_blocks = [Upsampler(channel = n_feats, kernel_size = 3, scale = 4, act = act)]
 
         self.tail = nn.Sequential(*upsample_blocks)
         
