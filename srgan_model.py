@@ -16,10 +16,9 @@ class Generator(nn.Module):
         self.conv02 = conv(in_channel = n_feats, out_channel = n_feats, kernel_size = 3, BN = True, act = None)
         
         if(scale == 4):
-            upsample_blocks = [Upsampler(channel = n_feats, kernel_size = 3, scale = 2, act = act)]
-            #for _ in range(2)]
+            upsample_blocks = [Upsampler(channel = n_feats, kernel_size = 3, scale = 2, act = act) for _ in range(2)]
         else:
-            upsample_blocks = [Upsampler(channel = n_feats, kernel_size = 3, scale = scale, act = act)]
+            upsample_blocks = [Upsampler(channel = n_feats, kernel_size = 3, scale = 2, act = act)]
         
         #upsample_blocks = [Upsampler(channel = n_feats, kernel_size = 3, scale = 2, act = act)]
 
