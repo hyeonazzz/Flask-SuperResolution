@@ -195,13 +195,23 @@ def test_only(args):
     print('195')
     with torch.no_grad():
         for i, te_data in enumerate(loader):
-            print(i)
-            lr = te_data['LR'].to(device)
-            output, _ = generator(lr)
-            output = output[0].cpu().numpy()
-            output = (output + 1.0) / 2.0
-            output = output.transpose(1,2,0)
-            result = Image.fromarray((output * 255.0).astype(np.uint8))
-            result.save('static/images/output/user_img/output.png')
+            try:
+                print('199')
+                lr = te_data['LR'].to(device)
+                print('200')
+                output, _ = generator(lr)
+                print('202')
+                output = output[0].cpu().numpy()
+                print('204')
+                output = (output + 1.0) / 2.0
+                print('206')
+                output = output.transpose(1,2,0)
+                print('208')
+                result = Image.fromarray((output * 255.0).astype(np.uint8))
+                print('210')
+                result.save('static/images/output/user_img/output.png')
+                print('212')
+            except Exception as e:
+                print(e)
 
 
