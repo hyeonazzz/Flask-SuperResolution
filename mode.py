@@ -185,6 +185,7 @@ def test(args):
 def test_only(args):
     
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    print(device)
     dataset = testOnly_data(LR_path = args.LR_path, in_memory = False, transform = None)
     loader = DataLoader(dataset, batch_size = 1, shuffle = False, num_workers = args.num_workers)
     print('190')

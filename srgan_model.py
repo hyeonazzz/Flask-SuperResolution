@@ -23,9 +23,9 @@ class Generator(nn.Module):
         #upsample_blocks = [Upsampler(channel = n_feats, kernel_size = 3, scale = 2, act = act)]
 
         self.tail = nn.Sequential(*upsample_blocks)
-        
+        print('26')
         self.last_conv = conv(in_channel = n_feats, out_channel = img_feat, kernel_size = 3, BN = False, act = nn.Tanh())
-        
+        print('28')
     def forward(self, x):
         
         x = self.conv01(x)
