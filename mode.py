@@ -187,14 +187,15 @@ def test_only(args):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     dataset = testOnly_data(LR_path = args.LR_path, in_memory = False, transform = None)
     loader = DataLoader(dataset, batch_size = 1, shuffle = False, num_workers = args.num_workers)
-    
+    print('190')
     generator = Generator(img_feat = 3, n_feats = 64, kernel_size = 3, num_block = args.res_num)
     generator.load_state_dict(torch.load(args.generator_path,map_location=device))
     generator = generator.to(device)
     generator.eval()
-    
+    print('195')
     with torch.no_grad():
         for i, te_data in enumerate(loader):
+            print(i)
             lr = te_data['LR'].to(device)
             output, _ = generator(lr)
             output = output[0].cpu().numpy()
