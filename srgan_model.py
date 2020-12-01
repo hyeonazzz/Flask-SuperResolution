@@ -14,12 +14,12 @@ class Generator(nn.Module):
         self.body = nn.Sequential(*resblocks)
         
         self.conv02 = conv(in_channel = n_feats, out_channel = n_feats, kernel_size = 3, BN = True, act = None)
-        
+        print('17')
         if(scale == 4):
             upsample_blocks = [Upsampler(channel = n_feats, kernel_size = 3, scale = 2, act = act) for _ in range(2)]
         else:
             upsample_blocks = [Upsampler(channel = n_feats, kernel_size = 3, scale = 2, act = act)]
-        
+        print('22')
         #upsample_blocks = [Upsampler(channel = n_feats, kernel_size = 3, scale = 2, act = act)]
 
         self.tail = nn.Sequential(*upsample_blocks)
