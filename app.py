@@ -72,17 +72,19 @@ def result():
         user_img = request.files['user_img']
         fname = secure_filename(user_img.filename)
         nonext, ext = fname.split(sep='.')
+        print(nonext)
+        print(ext)
 
         if ext == 'png':
-            path = os.path.join(app.config['UPLOAD_DIR'], 'input.png')
+            path = os.path.join(app.config['UPLOAD_DIR'], 'upload.png')
             user_img.save('static/images/user_img/upload.png')
         
         elif ext == 'jpg':
-            path = os.path.join(app.config['UPLOAD_DIR'], 'input.jpg')
+            path = os.path.join(app.config['UPLOAD_DIR'], 'upload.jpg')
             user_img.save('static/images/user_img/upload.jpg')
         
         elif ext == 'bmp':
-            path = os.path.join(app.config['UPLOAD_DIR'], 'input.bmp')
+            path = os.path.join(app.config['UPLOAD_DIR'], 'upload.bmp')
             user_img.save('static/images/user_img/upload.bmp')
 
         else :
