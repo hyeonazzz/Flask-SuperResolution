@@ -1,7 +1,6 @@
 import os, sys
 import time
 from flask import Flask, render_template, redirect, url_for, request, escape, Response, g, make_response
-from flask_caching import Cache
 from werkzeug.utils import secure_filename
 from mode import *
 import argparse
@@ -70,7 +69,6 @@ removeInput('static/images/user_img')
 removeOutput('static/images/output/user_img')
 
 @app.route('/')
-@cache.cached(timeout=50)
 def index():
     removeInput('static/images/user_img')
     removeOutput('static/images/output/user_img')
