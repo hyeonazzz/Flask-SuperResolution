@@ -54,13 +54,13 @@ def removeOutput(filePath):
             return 'already clean'
 print('out.remove')
 
-removeInput('static/images/user_img')
-removeOutput('static/images/output/user_img')
+removeInput('static/images/user_img/')
+removeOutput('static/images/output/user_img/')
 
 @app.route('/')
 def index():
-    removeInput('static/images/user_img')
-    removeOutput('static/images/output/user_img')
+    removeInput('static/images/user_img/')
+    removeOutput('static/images/output/user_img/')
     return render_template('index.html')
 
 
