@@ -1,17 +1,9 @@
 import os, sys
 import time
-import app
 from flask import Flask, render_template, redirect, url_for, request, escape, Response, g, make_response
 from werkzeug.utils import secure_filename
 from mode import *
 import argparse
-
-@app.after_request
-def set_response_headers(response):
-    response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
-    response.headers['Pragma'] = 'no-cache'
-    response.headers['Expires'] = '0'
-    return response
 
 parser = argparse.ArgumentParser()
 
@@ -71,7 +63,12 @@ def index():
     removeOutput('static/images/output/user_img')
     return render_template('index.html')
 
-
+@app.after_request
+def set_response_headers(response):
+    response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
+    response.headers['Pragma'] = 'no-cache'
+    response.headers['Expires'] = '0'
+    return response
 
 @app.route('/result', methods = ['GET', 'POST'])
 def result():
