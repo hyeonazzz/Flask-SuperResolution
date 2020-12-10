@@ -5,16 +5,6 @@ from werkzeug.utils import secure_filename
 from mode import *
 import argparse
 
-config = {
-    "DEBUG": True,          # some Flask specific configs
-    "CACHE_TYPE": "simple", # Flask-Caching related configs
-    "CACHE_DEFAULT_TIMEOUT": 300
-}
-app = Flask(__name__)
-# tell Flask to use the above defined config
-app.config.from_mapping(config)
-cache = Cache(app)
-
 
 parser = argparse.ArgumentParser()
 
