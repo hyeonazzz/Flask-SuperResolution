@@ -1,6 +1,7 @@
 import os, sys
 import time
 from flask import Flask, render_template, redirect, url_for, request, escape, Response, g, make_response
+from flask_caching import Cache
 from werkzeug.utils import secure_filename
 from mode import *
 import argparse
@@ -99,14 +100,25 @@ def result():
         elif args.mode == 'test_only':
             test_only(args)
     return render_template('result.html')
-    
+
 @app.after_request
 def set_response_headers(response):
     response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
     response.headers['Pragma'] = 'no-cache'
     response.headers['Expires'] = '0'
     return response
+
+cache = Cache()
+
+
+def main():
+    cache.init_app(app, config=your_cache_config)
+
+    with app.app_context():
+        cache.clear()
+
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port="5000", debug=True)
+    main()
 
 
