@@ -77,7 +77,6 @@ def index():
     return render_template('index.html')
 
 @app.route('/result', methods = ['GET', 'POST'])
-@cache.cached(timeout=50)
 def result():
     if request.method == "POST":
         global user_img
