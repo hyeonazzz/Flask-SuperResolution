@@ -6,6 +6,17 @@ from werkzeug.utils import secure_filename
 from mode import *
 import argparse
 
+config = {
+    "DEBUG": True,          # some Flask specific configs
+    "CACHE_TYPE": "simple", # Flask-Caching related configs
+    "CACHE_DEFAULT_TIMEOUT": 300
+}
+app = Flask(__name__)
+# tell Flask to use the above defined config
+app.config.from_mapping(config)
+cache = Cache(app)
+
+
 parser = argparse.ArgumentParser()
 
 def str2bool(v):
@@ -59,14 +70,14 @@ removeInput('static/images/user_img')
 removeOutput('static/images/output/user_img')
 
 @app.route('/')
+@cache.cached(timeout=50)
 def index():
     removeInput('static/images/user_img')
     removeOutput('static/images/output/user_img')
     return render_template('index.html')
 
-@app.cache.memoize(timeout=cache_memoize_value)
-
 @app.route('/result', methods = ['GET', 'POST'])
+@cache.cached(timeout=50)
 def result():
     if request.method == "POST":
         global user_img
@@ -101,24 +112,8 @@ def result():
             test_only(args)
     return render_template('result.html')
 
-@app.after_request
-def set_response_headers(response):
-    response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
-    response.headers['Pragma'] = 'no-cache'
-    response.headers['Expires'] = '0'
-    return response
-
-cache = Cache()
-
-
-def main():
-    cache.init_app(app, config=your_cache_config)
-
-    with app.app_context():
-        cache.clear()
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port="5000", debug=True)
-    main()
 
 
