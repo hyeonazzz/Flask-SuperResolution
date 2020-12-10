@@ -63,7 +63,7 @@ def index():
     removeOutput('static/images/output/user_img')
     return render_template('index.html')
 
-@app.after_request
+@app.before_first_request
 def set_response_headers(response):
     response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
     response.headers['Pragma'] = 'no-cache'
@@ -105,6 +105,12 @@ def result():
             test_only(args)
     return render_template('result.html')
 
+@app.after_request
+def set_response_headers(response):
+    response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
+    response.headers['Pragma'] = 'no-cache'
+    response.headers['Expires'] = '0'
+    return response
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port="5000", debug=True)
 
