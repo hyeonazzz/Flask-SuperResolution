@@ -63,13 +63,6 @@ def index():
     removeOutput('static/images/output/user_img')
     return render_template('index.html')
 
-@app.before_first_request
-def set_response_headers(response):
-    response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
-    response.headers['Pragma'] = 'no-cache'
-    response.headers['Expires'] = '0'
-    return response
-
 @app.route('/result', methods = ['GET', 'POST'])
 def result():
     if request.method == "POST":
@@ -104,6 +97,13 @@ def result():
         elif args.mode == 'test_only':
             test_only(args)
     return render_template('result.html')
+
+@app.before_first_request
+def set_response_headers(response):
+    response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
+    response.headers['Pragma'] = 'no-cache'
+    response.headers['Expires'] = '0'
+    return response
 
 @app.after_request
 def set_response_headers(response):
