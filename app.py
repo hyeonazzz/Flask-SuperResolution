@@ -1,9 +1,17 @@
 import os, sys
 import time
+import app
 from flask import Flask, render_template, redirect, url_for, request, escape, Response, g, make_response
 from werkzeug.utils import secure_filename
 from mode import *
 import argparse
+
+@app.after_request
+def set_response_headers(response):
+    response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
+    response.headers['Pragma'] = 'no-cache'
+    response.headers['Expires'] = '0'
+    return response
 
 parser = argparse.ArgumentParser()
 
@@ -54,13 +62,13 @@ def removeOutput(filePath):
             return 'already clean'
 print('out.remove')
 
-removeInput('static/images/user_img/')
-removeOutput('static/images/output/user_img/')
+removeInput('static/images/user_img')
+removeOutput('static/images/output/user_img')
 
 @app.route('/')
 def index():
-    removeInput('static/images/user_img/')
-    removeOutput('static/images/output/user_img/')
+    removeInput('static/images/user_img')
+    removeOutput('static/images/output/user_img')
     return render_template('index.html')
 
 
@@ -98,7 +106,7 @@ def result():
     
         elif args.mode == 'test_only':
             test_only(args)
-    return render_template('result.html', user_img=user_img)
+    return render_template('result.html')
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port="5000", debug=True)
