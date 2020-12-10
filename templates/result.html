@@ -42,52 +42,71 @@
 	<div id="loader_form">
 		<div data-loader="circle-side-2"></div>
 	</div><!-- /loader_form -->
+	<!-- /Header -->
 	
-	<div class="container-fluid">
-	    <div class="row row-height">
-		<div class="col-xl-4 col-lg-4 content-left">
-	        <div class="content-left-wrapper">
-	            <a href="{{ url_for('index') }}" id="logo"><img src="../static/logo.png" alt="" width="45" height="45"></a>
-	            <div>
-	                <figure><img src="../static/info_graphic_1.svg" alt="" class="img-fluid" width="270" height="270"></figure>
-	                <h2>FlaskSR</h2>
-	                <p>Super-Resolution with Python Flask<br>동국대학교 융합소프트웨어 캡스톤디자인</p>
-	                <a href="https://github.com/hyeonazzz/Flask-SuperResolution" class="btn_1 rounded yellow">GitHub에서 보기</a>
-	            </div>
-	            <div class="copy">© 2020</div>
-	        </div>
-	            <!-- /content-left-wrapper -->
-	        </div>
-	        <!-- /content-left -->
-	        <div class="col-xl-8 col-lg-8 content-right" id="start">
-	            <div id="wizard_container">
-	                <div id="top-wizard">
-	                    <span id="location"></span>
-	                    <div id="progressbar"></div>
-	                </div>
-	                <!-- /top-wizard -->
-	                <form action="/result" method="POST" enctype="multipart/form-data">
-	                    <!-- Leave for security protection, read docs for details -->
-	                    <div id="middle-wizard">
-                            <h2>FlaskSR(Super-Resolution)</h2>
-	                        <div>
-	                            <br>The uploaded image has successfully completed by Super-Resolution
-	                        </div>
-	                    </div>
-	                    <!-- /middle-wizard -->
-	                    <div id="bottom-wizard">
-                            <a href="../static/images/output/user_img/output.png" download="output.png" class="btn_1 rounded mobile_btn yellow">Download</a>
-	                    </div>
-	                    <!-- /bottom-wizard -->
-	                </form>
-	            </div>
-	            <!-- /Wizard container -->
-	        </div>
-	        <!-- /content-right-->
-	    </div>
-	    <!-- /row-->
-	</div>
-	<!-- /container-fluid -->
+	<section class="parallax_window_in" data-parallax="scroll" data-image-src="img/sub_header_about.jpg" data-natural-width="1400" data-natural-height="800">
+		<div id="sub_content_in">
+			<h1>FlaskSR</h1>
+			<p>Generative Adversarial Network(SRGAN)을 활용한 초해상화로 이미지의 해상도를 개선합니다.</p>
+		</div>
+	</section>
+	<!-- /section -->
+
+	<main id="general_page">
+		<div class="container margin_60">
+			<div class="main_title">
+				<h2><em></em>Successfully Done!</h2>
+				<p>
+				</p>
+			</div>	
+			<!--Team Carousel -->
+			<div class="row" align="center">
+				<div class="owl-carousel owl-theme team-carousel">
+					<div class="team-item">
+						<div class="team-item-img">
+							<img src="../static/images/user_img/upload.png" alt="">
+							<img src="../static/images/user_img/upload.jpg" alt="">
+							<img src="../static/images/user_img/upload.bmp" alt="">
+							<div class="team-item-detail">
+								<div class="team-item-detail-inner">
+									<h4>UPLOADED IMAGE</h4>
+									<p>Before SuperResolution</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /team-item -->
+					<div class="team-item">
+						<div class="team-item-img">
+							<img src="../static/images/output/user_img/output.jpg" alt="">
+							<div class="team-item-detail">
+								<div class="team-item-detail-inner">
+									<h4>OUTPUT IMAGE</h4>
+									<p>After SuperResolution</p>
+									<div id="bottom-wizard" align="center">
+										<a href="../static/images/output/user_img/output.jpg" download="output.jpg" class="btn_1 rounded mobile_btn yellow">Download</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /team-item -->
+				</div>
+			</div>
+			<!--End Team Carousel-->
+		</div>
+		<!-- End container -->
+	</main>
+	
+	<footer class="clearfix">
+		<div class="container">
+			<p>© 2020 FlaskSR</p>
+			<ul>
+				<li><a href="https://github.com/hyeonazzz/Flask-SuperResolution" class="animated_link">Github</a></li>
+			</ul>
+		</div>
+	</footer>
+	<!-- end footer-->
 
 	<div class="cd-overlay-nav">
 		<span></span>
@@ -97,16 +116,39 @@
 	<div class="cd-overlay-content">
 		<span></span>
 	</div>
+	<!-- /cd-overlay-content -->
 	
 	<!-- COMMON SCRIPTS -->
 	<script src="../static/jquery-3.5.1.min.js"></script>
     <script src="../static/common_scripts.min.js"></script>
 	<script src="../static/velocity.min.js"></script>
 	<script src="../static/common_functions.js"></script>
-	<script src="../static/file-validator.js"></script>
-
-	<!-- Wizard script-->
-	<script src="../static/func_4.js"></script>
+	
+	<!-- SPECIFIC SCRIPTS -->
+	<script src="../static/parallax.min.js"></script>
+	<script src="../static/owl-carousel.js"></script>
+	<script>
+	"use strict";
+	$(".team-carousel").owlCarousel({
+			items: 1,
+			loop: false,
+			margin: 10,
+			autoplay: false,
+			smartSpeed: 300,
+			responsiveClass: false,
+			responsive: {
+				320: {
+					items: 1,
+				},
+				768: {
+					items: 2,
+				},
+				1000: {
+					items: 3,
+				}
+			}
+		});
+	</script>
 
 </body>
 </html>

@@ -55,7 +55,7 @@
 	                <a href="https://github.com/hyeonazzz/Flask-SuperResolution" class="btn_1 rounded yellow">GitHub에서 보기</a>
 	                <a href="#start" class="btn_1 rounded mobile_btn yellow">Start Now!</a>
 	            </div>
-	            <div class="copy">© 2020</div>
+	            <div class="copy">© 2020 FlaskSR</div>
 	        </div>
 	            <!-- /content-left-wrapper -->
 	        </div>
@@ -71,10 +71,27 @@
 	                    <!-- Leave for security protection, read docs for details -->
 	                    <div id="middle-wizard">
 	                        <div>
-								<h2>FlaskSR(Super-Resolution)</h2>
+								<h2 class="section_title">FlaskSR(Super-Resolution)</h2>
 	                            Generative Adversarial Network(SRGAN)을 활용한<br>초해상화로 이미지의 해상도를 개선합니다.
 								<div class="form-group add_top_30">
 								</div>
+								<div class="form-group radio_input">
+								    <label class="container_radio mr-3">GrayScale (IR)
+								        <input type="radio" name="type" value="grayscale" class="required">
+								        <span class="checkmark"></span>
+								    </label>
+								    <label class="container_radio">Normal (Visible light, RGB)
+								        <input type="radio" name="type" value="normal" class="required">
+								        <span class="checkmark"></span>
+									</label>
+								</div><br>
+	                            <div class="form-group">
+	                                <label class="container_radio version_2">Colorize
+	                                    <input type="radio" name="colorize" value="colorize">
+	                                    <span class="checkmark"></span>
+	                                </label>
+	                            </div>
+	                            <small>* If you select Colorize if it is not grayscale, the result may not be normal </small>
 								<div class="form-group add_bottom_30 add_top_20">
 	                                <label>Attach image<br><small>(File accepted: .png, .jpg, .bmp - Max file size: 2MB for limit)</small></label>
 	                                <div class="fileupload">
@@ -109,32 +126,6 @@
 		<span></span>
 	</div>
 	<!-- /cd-overlay-content -->
-	<!--
-	<a href="#0" class="cd-nav-trigger">Menu<span class="cd-icon"></span></a>
-	 /menu button -->
-	
-	<!-- Modal terms -->
-	<div class="modal fade" id="terms-txt" tabindex="-1" role="dialog" aria-labelledby="termsLabel" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h4 class="modal-title" id="termsLabel">Terms and conditions</h4>
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				</div>
-				<div class="modal-body">
-					<p>Lorem ipsum dolor sit amet, in porro albucius qui, in <strong>nec quod novum accumsan</strong>, mei ludus tamquam dolores id. No sit debitis meliore postulant, per ex prompta alterum sanctus, pro ne quod dicunt sensibus.</p>
-					<p>Lorem ipsum dolor sit amet, in porro albucius qui, in nec quod novum accumsan, mei ludus tamquam dolores id. No sit debitis meliore postulant, per ex prompta alterum sanctus, pro ne quod dicunt sensibus. Lorem ipsum dolor sit amet, <strong>in porro albucius qui</strong>, in nec quod novum accumsan, mei ludus tamquam dolores id. No sit debitis meliore postulant, per ex prompta alterum sanctus, pro ne quod dicunt sensibus.</p>
-					<p>Lorem ipsum dolor sit amet, in porro albucius qui, in nec quod novum accumsan, mei ludus tamquam dolores id. No sit debitis meliore postulant, per ex prompta alterum sanctus, pro ne quod dicunt sensibus.</p>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn_1" data-dismiss="modal">Close</button>
-				</div>
-			</div>
-			<!-- /.modal-content -->
-		</div>
-		<!-- /.modal-dialog -->
-	</div>
-	<!-- /.modal -->
 	
 	<!-- COMMON SCRIPTS -->
 	<script src="../static/jquery-3.5.1.min.js"></script>

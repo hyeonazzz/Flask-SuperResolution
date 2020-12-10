@@ -28,7 +28,6 @@ parser.add_argument("--fine_tuning", type = str2bool, default = False)
 parser.add_argument("--in_memory", type = str2bool, default = True)
 parser.add_argument("--generator_path", type = str, default = 'model/SRGAN.pt')
 #parser.add_argument("--generator_path", type = str, default = 'model/SRGAN_11500_201124.pt')
-#parser.add_argument("--generator_path", type = str, default = 'model/SRGAN_8400_201124.pt')
 parser.add_argument("--mode", type = str, default = 'test_only')
 
 args = parser.parse_args()
@@ -72,8 +71,22 @@ def result():
         global user_img
         user_img = request.files['user_img']
         fname = secure_filename(user_img.filename)
-        path = os.path.join(app.config['UPLOAD_DIR'], fname)
-        user_img.save(path)
+        nonext, ext = fname.split(sep='.')
+
+        if ext == 'png':
+            path = os.path.join(app.config['UPLOAD_DIR'], 'input.png')
+            user_img.save('static/images/user_img/upload.png')
+        
+        elif ext == 'jpg':
+            path = os.path.join(app.config['UPLOAD_DIR'], 'input.jpg')
+            user_img.save('static/images/user_img/upload.jpg')
+        
+        elif ext == 'bmp':
+            path = os.path.join(app.config['UPLOAD_DIR'], 'input.bmp')
+            user_img.save('static/images/user_img/upload.bmp')
+
+        else :
+            print('extension not found')
 
         if args.mode == 'train':
             train(args)
