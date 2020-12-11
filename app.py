@@ -5,7 +5,6 @@ from werkzeug.utils import secure_filename
 from mode import *
 import argparse
 
-
 parser = argparse.ArgumentParser()
 
 def str2bool(v):
@@ -71,8 +70,6 @@ def result():
         user_img = request.files['user_img']
         fname = secure_filename(user_img.filename)
         nonext, ext = fname.split(sep='.')
-        print(nonext)
-        print(ext)
 
         if ext == 'png':
             path = os.path.join(app.config['UPLOAD_DIR'], 'upload.png')
