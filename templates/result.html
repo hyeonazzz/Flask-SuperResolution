@@ -9,163 +9,198 @@
 <!DOCTYPE html>
 <html lang="ko">
 
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Fakeman - Super-Resolution with Python Flask">
+        <meta name="author" content="Ansonika">
+        <title>FlaskSR | Super Resolution with Flask</title>
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Fakeman - Super-Resolution with Python Flask">
-    <meta name="author" content="Ansonika">
-	<title>FlaskSR | Super Resolution with Flask</title>
+        <meta http-equiv="Expires" content="Mon, 06 Jan 1990 00:00:01 GMT">
+        <meta http-equiv="Expires" content="-1">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Cache-Control" content="no-cache">
 
-	<meta http-equiv="Expires" content="Mon, 06 Jan 1990 00:00:01 GMT">
-	<meta http-equiv="Expires" content="-1">
-	<meta http-equiv="Pragma" content="no-cache">
-	<meta http-equiv="Cache-Control" content="no-cache">
+        <!-- Favicons-->
+        <link rel="shortcut icon" href="../static/favicon.ico" type="image/x-icon">
+        <link
+            rel="apple-touch-icon"
+            type="image/x-icon"
+            href="../static/apple-touch-icon-57x57-precomposed.png">
+        <link
+            rel="apple-touch-icon"
+            type="image/x-icon"
+            sizes="72x72"
+            href="../static/apple-touch-icon-72x72-precomposed.png">
+        <link
+            rel="apple-touch-icon"
+            type="image/x-icon"
+            sizes="114x114"
+            href="../static/apple-touch-icon-114x114-precomposed.png">
+        <link
+            rel="apple-touch-icon"
+            type="image/x-icon"
+            sizes="144x144"
+            href="../static/apple-touch-icon-144x144-precomposed.png">
 
-    <!-- Favicons-->
-    <link rel="shortcut icon" href="../static/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" type="image/x-icon" href="../static/apple-touch-icon-57x57-precomposed.png">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="../static/apple-touch-icon-72x72-precomposed.png">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="../static/apple-touch-icon-114x114-precomposed.png">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="../static/apple-touch-icon-144x144-precomposed.png">
+        <!-- GOOGLE WEB FONT -->
+        <link
+            href="https://fonts.googleapis.com/css?family=Work+Sans:400,500,600"
+            rel="stylesheet">
 
-    <!-- GOOGLE WEB FONT -->
-    <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,500,600" rel="stylesheet">
+        <!-- BASE CSS -->
+        <link href="../static/bootstrap.min.css" rel="stylesheet">
+        <link href="../static/menu.css" rel="stylesheet">
+        <link href="../static/style.css" rel="stylesheet">
+        <link href="../static/vendors.css" rel="stylesheet">
 
-    <!-- BASE CSS -->
-    <link href="../static/bootstrap.min.css" rel="stylesheet">
-	<link href="../static/menu.css" rel="stylesheet">
-    <link href="../static/style.css" rel="stylesheet">
-	<link href="../static/vendors.css" rel="stylesheet">
+        <!-- YOUR CUSTOM CSS -->
+        <link href="../static/custom.css" rel="stylesheet">
 
-    <!-- YOUR CUSTOM CSS -->
-    <link href="../static/custom.css" rel="stylesheet">
-	
-	<!-- MODERNIZR MENU -->
-	<script src="../static/modernizr.js"></script>
+        <!-- MODERNIZR MENU -->
+        <script src="../static/modernizr.js"></script>
 
-</head>
+    </head>
 
-<body>
-	
-	<div id="preloader">
-		<div data-loader="circle-side"></div>
-	</div><!-- /Preload -->
-	
-	<div id="loader_form">
-		<div data-loader="circle-side-2"></div>
-	</div><!-- /loader_form -->
-	<!-- /Header -->
-	<!-- /section -->
+    <body>
 
-	<main id="general_page">
-		<div class="container margin_60">
-			<div class="main_title">
-				<h3>Successfully Done!</h3>
-				<p>
-				</p>
-			</div>	
-			<!--Team Carousel -->
-			<div class="row" align="center">
-				<div class="owl-carousel owl-theme team-carousel">
-					<div class="team-item">
-						<div class="team-item-img">
-							<img src="../static/images/user_img/upload.png" alt="">
-							<img src="../static/images/user_img/upload.jpg" alt="">
-							<img src="../static/images/user_img/upload.bmp" alt="">
-							<div class="team-item-detail">
-								<div class="team-item-detail-inner">
-									<h4>UPLOADED IMAGE</h4>
-									<p>Before SuperResolution</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- /team-item -->
-					<div class="team-item">
-						<div class="team-item-img">
-							<img src="../static/images/output/user_img/output.png" alt="">
-							<div class="team-item-detail">
-								<div class="team-item-detail-inner">
-									<h4>OUTPUT IMAGE</h4>
-									<p>After SuperResolution</p>
-									<div id="bottom-wizard" align="center">
-										<a href="../static/images/output/user_img/output.png" download="output.png" class="btn_1 rounded mobile_btn yellow">Download</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div><br>
-				</div><hr>
-			</div><br>
-			<!--End Team Carousel-->
-			<div class="row">
-				<img src="../static/images/user_img/upload.png" alt="">
-				<img src="../static/images/user_img/upload.jpg" alt="">
-				<img src="../static/images/user_img/upload.bmp" alt="">
-			</div>
+        <div id="preloader">
+            <div data-loader="circle-side"></div>
+        </div>
+        <!-- /Preload -->
 
-			<div class="row">
-				<img src="../static/images/output/user_img/output.png" alt="">
-				<caption>PSNR = 32.1765</caption>
-			</div>
-			<!-- /team-
-		</div>
-		<!-- End container -->
-	</main>
-	
-	<footer class="clearfix">
-		<div class="container">
-			<p>© 2020 FlaskSR</p>
-			<ul>
-				<li><a href="https://github.com/hyeonazzz/Flask-SuperResolution" class="animated_link">Github</a></li>
-			</ul>
-		</div>
-	</footer>
-	<!-- end footer-->
+        <div id="loader_form">
+            <div data-loader="circle-side-2"></div>
+        </div>
+        <!-- /loader_form -->
+        <!-- /Header -->
+        <!-- /section -->
 
-	<div class="cd-overlay-nav">
-		<span></span>
-	</div>
-	<!-- /cd-overlay-nav -->
+        <main id="general_page">
+            <div class="container margin_60">
+                <div class="main_title">
+                    <h3>Successfully Done!</h3>
+                    <p></p>
+                </div>
+                <!--Team Carousel -->
+                <div class="row" align="center">
+                    <div class="owl-carousel owl-theme team-carousel">
+                        <div class="team-item">
+                            <div class="team-item-img">
+                                <img src="../static/images/user_img/upload.png" alt="">
+                                <img src="../static/images/user_img/upload.jpg" alt="">
+                                <img src="../static/images/user_img/upload.bmp" alt="">
+                                <div class="team-item-detail">
+                                    <div class="team-item-detail-inner">
+                                        <h4>UPLOADED IMAGE</h4>
+                                        <p>Before SuperResolution</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /team-item -->
+                        <div class="team-item">
+                            <div class="team-item-img">
+                                <img src="../static/images/output/user_img/output.png" alt="">
+                                <div class="team-item-detail">
+                                    <div class="team-item-detail-inner">
+                                        <h4>OUTPUT IMAGE</h4>
+                                        <p>After SuperResolution</p>
+                                        <div id="bottom-wizard" align="center">
+                                            <a
+                                                href="../static/images/output/user_img/output.png"
+                                                download="output.png"
+                                                class="btn_1 rounded mobile_btn yellow">Download</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /team-->
+            </div>
+            <!-- End container -->
+            <div class="container margin_60">
+                <div class="owl-carousel owl-theme team-carousel"></div>
+                <div class="main_title">
+                    <h3>Real Size</h3>
+                    <p></p>
+                </div>
+                <!--Team Carousel -->
+                <div align="center">
+                    <div class="row" align="center">
+                        <img src="../static/images/user_img/upload.png" alt="">
+                        <img src="../static/images/user_img/upload.jpg" alt="">
+                        <img src="../static/images/user_img/upload.bmp" alt="">
+                    </div>
+                    <div class="row" align="center">
+						<img src="../static/images/output/user_img/output.png" alt="">
+						<caption>PSNR = 32.3474</caption>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 
-	<div class="cd-overlay-content">
-		<span></span>
-	</div>
-	<!-- /cd-overlay-content -->
-	
-	<!-- COMMON SCRIPTS -->
-	<script src="../static/jquery-3.5.1.min.js"></script>
+    <footer class="clearfix">
+        <div class="container">
+            <p>© 2020 FlaskSR</p>
+            <ul>
+                <li>
+                    <a
+                        href="https://github.com/hyeonazzz/Flask-SuperResolution"
+                        class="animated_link">Github</a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+    <!-- end footer-->
+
+    <div class="cd-overlay-nav">
+        <span></span>
+    </div>
+    <!-- /cd-overlay-nav -->
+
+    <div class="cd-overlay-content">
+        <span></span>
+    </div>
+    <!-- /cd-overlay-content -->
+
+    <!-- COMMON SCRIPTS -->
+    <script src="../static/jquery-3.5.1.min.js"></script>
     <script src="../static/common_scripts.min.js"></script>
-	<script src="../static/velocity.min.js"></script>
-	<script src="../static/common_functions.js"></script>
-	
-	<!-- SPECIFIC SCRIPTS -->
-	<script src="../static/parallax.min.js"></script>
-	<script src="../static/owl-carousel.js"></script>
-	<script>
-	"use strict";
-	$(".team-carousel").owlCarousel({
-			items: 1,
-			loop: false,
-			margin: 10,
-			autoplay: false,
-			smartSpeed: 300,
-			responsiveClass: false,
-			responsive: {
-				320: {
-					items: 1,
-				},
-				768: {
-					items: 2,
-				},
-				1000: {
-					items: 3,
-				}
-			}
-		});
-	</script>
+    <script src="../static/velocity.min.js"></script>
+    <script src="../static/common_functions.js"></script>
+
+    <!-- SPECIFIC SCRIPTS -->
+    <script src="../static/parallax.min.js"></script>
+    <script src="../static/owl-carousel.js"></script>
+    <script>
+        "use strict";
+        $(".team-carousel").owlCarousel({
+            items: 1,
+            loop: false,
+            margin: 10,
+            autoplay: false,
+            smartSpeed: 300,
+            responsiveClass: false,
+            responsive: {
+                320: {
+                    items: 1
+                },
+                768: {
+                    items: 2
+                },
+                1000: {
+                    items: 3
+                }
+            }
+        });
+    </script>
 
 </body>
 </html>
